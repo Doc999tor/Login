@@ -1,0 +1,10 @@
+:root {
+  --main-color: #4b4b4b; /* (#greyish_brown) */
+  --main-bgcolor: #5e36b1; /* (#blue_with_a_hint_of_purple_two); */
+  --sec-color: #efefff; /* (#pale_lilac); */
+  --sec-bgcolor: #bfafe0; /* (#pale_purple); */
+  --white-color: #fff;
+  --active-color: #ff358c; /* (#barbie_pink); */
+  --dark-color: #4f2da7; /* (#blue_with_a_hint_of_purple); */
+  --font-family: -apple-system, "San Francisco", "Lucida Grande", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
