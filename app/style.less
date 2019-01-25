@@ -2,10 +2,27 @@
 
 body {
     font-family: var(--font-family);
+    font-weight: normal;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    // fix normalize.css margin
+    color: var(--white-color);
     margin: 0px !important;
+}
+
+button {
+  border: none;
+}
+button:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px var(--sec-bgcolor);
+}
+input[type="text"], input[type="password"] {
+  background-color : var(--sec-color) !important; 
+  background-position: 320px;
+}
+input[type="password"]:focus, input[type="text"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 10px var(--sec-bgcolor);
 }
