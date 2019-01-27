@@ -156,13 +156,13 @@ function getProdSettings(module) {
           new DynamicCdnWebpackPlugin({env: 'production'}),
           new CopyWebpackPlugin([
             {
-              context: './app/media/',
+              context: './media/',
               from: '**/*',
               to: './media/'
             }, {
               from: './app/config.js'
             }
-          ]),
+          ])
           // ,
           // new BundleAnalyzerPlugin()
       ],

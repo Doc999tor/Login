@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from './pages/home/home.jsx';
-import Forgot from './pages/forgot/forgot.jsx';
+import Home from './pages/home/home.jsx'
+import Forgot from './pages/forgot/forgot.jsx'
 import {browserHistory, Router, Route} from 'react-router'
 
-const config = window._config
 import './style.less'
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={Home} />
-    <Route path="/forgot" component={Forgot} />
-    <Route path="/singup" component={Home} />
+    <Route path='/' component={Home} />
+    <Route path='/forgot' component={Forgot} />
+    <Route path='/singup' component={Home} />
   </Router>, document.getElementById('root'))

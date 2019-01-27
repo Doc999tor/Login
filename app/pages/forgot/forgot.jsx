@@ -2,10 +2,10 @@ import React, {Component} from 'react'
 import './forgot.less'
 class Forgot extends Component {
 
-render() {
+  render () {
     return (
       <div>Forgot</div>
-    );
+    )
   }
 }
 

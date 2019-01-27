@@ -7,4 +7,6 @@
   --active-color: #ff358c; /* (#barbie_pink); */
   --dark-color: #4f2da7; /* (#blue_with_a_hint_of_purple); */
   --font-family: -apple-system, "San Francisco", "Lucida Grande", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* need to add */
+  --shadow-color : rgba(0, 0, 0, 0.25);
 }
