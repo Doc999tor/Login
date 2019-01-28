@@ -15,8 +15,13 @@ body[dir=rtl] {
   img {
     transform: scaleX(-1);
   }
+  .sign-in .sign-in-wrap .login-form .group.password .group__eye {
+    left: 1rem;
+    right: inherit;
+  }
 }
-.login-form__forgot:active, .dont-have-acc__sing-up:active { 
+// click text shadow
+.login-form__forgot:active, .dont-have-acc__sing-up:active, { 
   text-shadow: 1px 1px 2px var(--white-color), 0 0 1em var(--dark-color);
   transition: text-shadow 0.2s linear;
 }
@@ -25,11 +30,23 @@ button {
 }
 button:focus {
   outline: none !important;
-  box-shadow: 0 0 10px var(--sec-bgcolor);
+  box-shadow: 0 0 .5rem var(--sec-bgcolor);
+}
+// browser autofill background color change
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
 }
 input[type="text"], input[type="password"] {
   background-color : var(--sec-color) !important; 
-  background-position: 320px;
 }
 input[type="password"]:focus, input[type="text"]:focus {
   outline: none !important;

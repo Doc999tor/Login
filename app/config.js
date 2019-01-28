@@ -13,7 +13,11 @@ _config.translations = {
   enter_email: 'enter your email',
   enter_password: 'enter your password',
   login: 'Login',
-  forgot_password: 'Forgot your password?', 
+  forgot_password: 'Forgot your password?',
   dont_have_acc: 'Don’t have an account?',
-  sing_up: 'Sign Up'
+  sing_up: 'Sign Up',
+  missing_email: 'Missing email',
+  missing_password: 'Missing password',
+  wrong_email: 'Wrong email try again!',
+  enter_email_pass: 'Enter email and password'
 }

@@ -9,7 +9,7 @@ import './style.less'
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path='/' component={Home} />
+    <Route path='/' component={SignIn} />
     <Route path='/forgot' component={Forgot} />
     <Route path='/sign-in' component={SignIn} />
   </Router>, document.getElementById('root'))
