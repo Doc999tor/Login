@@ -69,30 +69,34 @@ class SignIn extends Component {
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}image.png#blur)`}} className='sign-in'>
         <div className='sign-in-wrap'>
           <img className='sign-in-htm__logo' src={_config.urls.static + 'logo.svg'} />
-          {/* <div className={`login-form ${this.state.isValidEmail ? 'email-valid' : 'email-err'} ${this.state.isValidPass ? 'pass-valid' : 'pass-err'}`}> */}
-          <div className='login-form'>
+            <form action={_config.translations.check_login} method='POST'>
             <div className='login-form__text'>{_config.translations.title}</div>
             <button className='login-form__button google dispay-none'>
               <img className='login-form__img' src={_config.urls.static + 'search.svg'} />
               <span>{_config.translations.login_google}</span>
             </button>
+            <input className='login-form__time-zone' type='text' c name='time_zone' value={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
             <span className='login-form__text or dispay-none' >{_config.translations.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
               <input type='text'
+                name='email'
                 style={{background: backgroundImage(mail)}}
                 ref={email => this.email = email}
                 onChange={e => this.setState({emailValue: e.target.value})}
                 className='group__input email'
-                placeholder={_config.translations.enter_email} />
+                placeholder={_config.translations.enter_email} 
+                autoComplete='username' />
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
               <input type='password'
+                name='pass'
                 style={{background: backgroundImage(lock)}}
                 onChange={e => this.setState({passValue: e.target.value})}
                 ref={pass => this.pass = pass}
                 className='group__input password'
                 data-type='password'
-                placeholder={_config.translations.enter_password} />
+                placeholder={_config.translations.enter_password}
+                autoComplete='current-password' />
               {this.state.passValue && <img className='group__eye'
                 onClick={this.togglePass}
                 src={_config.urls.static + (this.state.isVisiblePass ? 'eye-off.svg' : 'eye.svg')} />}
@@ -101,12 +105,12 @@ class SignIn extends Component {
               {this.state.errMessage && <img className='login-err__img' src={_config.urls.static + 'vector.svg'} />}
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
-            <button className='login-form__button login-button' onClick={this.checkStuff}>
+            <button type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'} className='login-form__button login-button' onClick={this.checkStuff}>
               {_config.translations.login}
             </button>
             <span className='login-form__forgot'>{_config.translations.forgot_password}</span>
+            </form>
           </div>
-        </div>
         <span className='dont-have-acc'>{_config.translations.dont_have_acc} &nbsp;
           <span className='dont-have-acc__sing-up'>{_config.translations.sing_up}</span>
         </span>

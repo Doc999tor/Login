@@ -17,13 +17,13 @@ body[dir=rtl] {
   img {
     transform: scaleX(-1);
   }
-  .sign-in .sign-in-wrap .login-form .group.password .group__eye {
+  .sign-in .sign-in-wrap form .group.password .group__eye {
     left: 0;
     right: inherit;
   }
 }
 // click text shadow
-.login-form__forgot:active, .dont-have-acc__sing-up:active, { 
+form__forgot:active, .dont-have-acc__sing-up:active, { 
   text-shadow: 1px 1px 2px var(--white-color), 0 0 1em var(--dark-color);
   transition: text-shadow 0.2s linear;
 }
@@ -59,9 +59,9 @@ input[type="password"]:focus, input[type="text"]:focus {
 .dispay-none {
   display: none !important;
 }
-.sign-in .sign-in-wrap .login-form {
+.sign-in .sign-in-wrap form {
   top: -4.5rem;
 }
-.sign-in .sign-in-wrap .login-form .login-form__text {
+.sign-in .sign-in-wrap form .login-form__text {
   padding: 0 0 1.5rem 0;
 }

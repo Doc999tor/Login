@@ -1,6 +1,6 @@
 var _config = {}
 
-_config.data = {isRTL: false}
+_config.data = {isRTL: true}
 
 _config.urls = {
   static: './media/' // project images
@@ -19,5 +19,6 @@ _config.translations = {
   missing_email: 'Missing email',
   missing_password: 'Missing password',
   wrong_email: 'Wrong email try again!',
-  enter_email_pass: 'Enter email and password'
+  enter_email_pass: 'Enter email and password',
+  check_login: '/check-login'
 }
