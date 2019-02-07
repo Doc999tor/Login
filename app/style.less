@@ -1,5 +1,7 @@
 @import './variables.css';
-
+html, body, #root, .sign-in  {
+  height: 100%;
+}
 body {
     font-family: var(--font-family);
     font-weight: normal;
@@ -51,4 +53,15 @@ input[type="text"], input[type="password"] {
 input[type="password"]:focus, input[type="text"]:focus {
   outline: none !important;
   box-shadow: 0 0 10px var(--sec-bgcolor);
+}
+
+// temp 
+.dispay-none {
+  display: none !important;
+}
+.sign-in .sign-in-wrap .login-form {
+  top: -4.5rem;
+}
+.sign-in .sign-in-wrap .login-form .login-form__text {
+  padding: 0 0 1.5rem 0;
 }

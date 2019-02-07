@@ -72,11 +72,11 @@ class SignIn extends Component {
           {/* <div className={`login-form ${this.state.isValidEmail ? 'email-valid' : 'email-err'} ${this.state.isValidPass ? 'pass-valid' : 'pass-err'}`}> */}
           <div className='login-form'>
             <div className='login-form__text'>{_config.translations.title}</div>
-            <button className='login-form__button google'>
+            <button className='login-form__button google dispay-none'>
               <img className='login-form__img' src={_config.urls.static + 'search.svg'} />
               <span>{_config.translations.login_google}</span>
             </button>
-            <span className='login-form__text or'>{_config.translations.login_or}</span>
+            <span className='login-form__text or dispay-none' >{_config.translations.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
               <input type='text'
                 style={{background: backgroundImage(mail)}}
