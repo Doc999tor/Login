@@ -27,13 +27,13 @@ class SignIn extends Component {
     if (this.state.emailValue === '' && this.state.passValue === '') {
       this.setState({isValidEmail: false})
       this.setState({isValidPass: false})
-      this.setState({errMessage: _config.translations.enter_email_pass})
+      this.setState({errMessage: _config.translations.sing_in.enter_email_pass})
       return false
     }
     // mail epmty
     if (this.state.emailValue === '') {
       this.setState({isValidEmail: false})
-      this.setState({errMessage: _config.translations.missing_email})
+      this.setState({errMessage: _config.translations.sing_in.missing_email})
       this.email.focus()
       return false
     } else {
@@ -43,7 +43,7 @@ class SignIn extends Component {
       // mail not valid (if not: @, .com or there are prohibited characters)
       if (!re.test(this.state.emailValue)) {
         this.setState({isValidEmail: false})
-        this.setState({errMessage: _config.translations.wrong_email})
+        this.setState({errMessage: _config.translations.sing_in.wrong_email})
         this.email.focus()
         return false
       } else {
@@ -54,7 +54,7 @@ class SignIn extends Component {
     // pass epmty
     if (this.state.passValue === '') {
       this.setState({isValidPass: false})
-      this.setState({errMessage: _config.translations.missing_password})
+      this.setState({errMessage: _config.translations.sing_in.missing_password})
       this.pass.focus()
       return false
     } else {
@@ -69,23 +69,26 @@ class SignIn extends Component {
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}image.png#blur)`}} className='sign-in'>
         <div className='sign-in-wrap'>
           <img className='sign-in-htm__logo' src={_config.urls.static + 'logo.svg'} />
-            <form action={_config.translations.check_login} method='POST'>
-            <div className='login-form__text'>{_config.translations.title}</div>
+          <form action={_config.translations.sing_in.check_login} method='POST'>
+            <div className='login-form__text'>{_config.translations.sing_in.title}</div>
             <button className='login-form__button google dispay-none'>
               <img className='login-form__img' src={_config.urls.static + 'search.svg'} />
-              <span>{_config.translations.login_google}</span>
+              <span>{_config.translations.sing_in.login_google}</span>
             </button>
-            <input className='login-form__time-zone' type='text' c name='time_zone' value={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
-            <span className='login-form__text or dispay-none' >{_config.translations.login_or}</span>
+            <input className='login-form__time-zone'
+              type='text'
+              name='time_zone'
+              defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
+            <span className='login-form__text or dispay-none' >{_config.translations.sing_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
-              <input type='text'
-                name='email'
-                style={{background: backgroundImage(mail)}}
-                ref={email => this.email = email}
-                onChange={e => this.setState({emailValue: e.target.value})}
-                className='group__input email'
-                placeholder={_config.translations.enter_email} 
-                autoComplete='username' />
+            <input type='text'
+              name='email'
+              style={{background: backgroundImage(mail)}}
+              ref={email => this.email = email}
+              onChange={e => this.setState({emailValue: e.target.value})}
+              className='group__input email'
+              placeholder={_config.translations.sing_in.enter_email}
+              autoComplete='username' />
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
               <input type='password'
@@ -95,7 +98,7 @@ class SignIn extends Component {
                 ref={pass => this.pass = pass}
                 className='group__input password'
                 data-type='password'
-                placeholder={_config.translations.enter_password}
+                placeholder={_config.translations.sing_in.enter_password}
                 autoComplete='current-password' />
               {this.state.passValue && <img className='group__eye'
                 onClick={this.togglePass}
@@ -106,13 +109,13 @@ class SignIn extends Component {
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
             <button type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'} className='login-form__button login-button' onClick={this.checkStuff}>
-              {_config.translations.login}
+              {_config.translations.sing_in.login}
             </button>
-            <span className='login-form__forgot'>{_config.translations.forgot_password}</span>
-            </form>
-          </div>
-        <span className='dont-have-acc'>{_config.translations.dont_have_acc} &nbsp;
-          <span className='dont-have-acc__sing-up'>{_config.translations.sing_up}</span>
+            <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>{_config.translations.sing_in.forgot_password}</span>
+          </form>
+        </div>
+        <span className='dont-have-acc'>{_config.translations.sing_in.dont_have_acc} &nbsp;
+          <span className='dont-have-acc__sing-up'>{_config.translations.sing_in.sing_up}</span>
         </span>
       </div>
     )

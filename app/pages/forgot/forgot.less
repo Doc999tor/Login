@@ -1,0 +1,111 @@
+.forgot {
+    background-position: center;
+    background-size: cover;
+    background: var(--white-color);
+    color: var(--dark-color);
+    height: 100%;
+    overflow: hidden;
+    .forgot-wrap {
+      height: 100%;
+      text-align: center;
+      .forgot-htm__logo {
+        width: 60%;
+        display: flex;
+        margin: 0 auto;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 66%;
+        margin: 0 auto;
+        height: 38%;
+        justify-content: space-between;
+        .forgot-form__text {
+          font-size: 1.5rem;
+          width: 100%;
+        }
+        .forgot-form__button {
+          width: 88%;
+          background-color: var(--sec-bgcolor);
+          align-items: center;
+          border-radius: 10rem;
+          padding: 0.8rem 1.5rem;
+          color: var(--white-color);
+          box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
+          font-size: 1.125rem;
+          &:hover {
+            background-color: var(--main-bgcolor);
+          }
+          &.forgot-button {
+            text-transform: uppercase;
+          }
+          .forgot-form__button--img {
+            padding: 0 0.6rem;
+          }
+        }
+        .group {
+          margin-bottom: 0.65rem;
+          width: 100%;
+          display: flex;
+          .group__input {
+            border: 0.07rem solid var(--white-color);
+            padding: 0.5rem 2.5rem 0.375rem 2.5rem;
+            width: 100%;
+            border-radius: 10rem;
+            box-shadow: 0 4px 4px 0 var(--shadow-color);
+            background-size: 1rem;
+            line-height: 1.71;
+            color: var(--dark-color);
+            &:invalid {
+              color: var(--err-color)
+            }
+          }
+        }
+        .forgot-form__forgot {
+          color: var(--main-color);
+          margin: 0 1.25rem;
+          font-size: 0.875rem;
+          letter-spacing: 0.3px;
+        }
+      }
+    }
+  }
+  .forgot-close {
+      display: flex;
+      justify-content: flex-end;
+      .forgot-close-wrap {
+        padding: 1.15rem 1.95rem;
+        .forgot-close__x {
+          position: relative;
+          // padding: 1rem;
+          &:hover {
+            &::before, &::after {
+              background: var(--main-bgcolor);
+            }
+          }
+        
+          &::before, &::after {
+            content: '';
+            position: absolute;
+            height: .125rem;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            background: #000;
+          }
+          &::before {
+            transform: rotate(45deg);
+          }
+          &::after {
+            transform: rotate(-45deg);
+          }
+          &.thick {
+              &::before, &::after {
+                height: 1.375rem;
+                width: 0.075rem;
+              }
+            }    
+      }
+    }
+}
