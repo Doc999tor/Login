@@ -10,4 +10,5 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path={_config.routing.sing_in_path} component={SignIn} />
     <Route path={_config.routing.forgot_path} component={Forgot} />
+    <Route path='*' component={SignIn} />
   </Router>, document.getElementById('root'))
