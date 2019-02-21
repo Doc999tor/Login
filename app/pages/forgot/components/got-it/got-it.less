@@ -1,14 +1,13 @@
-.forgot {
+.got-it {
     background-position: center;
     background-size: cover;
     background: var(--white-color);
     color: var(--dark-color);
     height: 100%;
-    overflow: hidden;
-    .forgot-wrap {
+    .got-it-wrap {
       height: 100%;
       text-align: center;
-      .forgot-htm__logo {
+      .got-it-htm__logo {
         width: 60%;
         display: flex;
         margin: 0 auto;
@@ -17,37 +16,31 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 72%;
+        width: 80%;
         margin: 0 auto;
         height: 44%;
         justify-content: space-between;
-        .forgot-wrap-wrap {
-          display: flex;
-          flex-direction: column;
-          flex: 0.675;
-          justify-content: space-between;
-          .forgot-form__text {
-            font-size: 1.5rem;
-            width: 100%;
-          }          
-        }
-        .forgot-form__button {
+        .got-it-form__text {
+          font-size: 1.5rem;
           width: 100%;
-          background-color: var(--sec-bgcolor);
+          letter-spacing: 0.3px;
+        }
+        .got-it-form__button {
+          width: 88%;
+          background-color: var(--dark-color);
           align-items: center;
           border-radius: 10rem;
           padding: 0.8rem 1.5rem;
           color: var(--white-color);
           box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.5);
           font-size: 1.125rem;
-          margin-top: 12%;
           &:hover {
             background-color: var(--main-bgcolor);
           }
-          &.forgot-button {
+          &.got-it-button {
             text-transform: uppercase;
           }
-          .forgot-form__button--img {
+          .got-it-form__button--img {
             padding: 0 0.6rem;
           }
         }
@@ -69,21 +62,26 @@
             }
           }
         }
-        .forgot-form__forgot {
-          margin: 0 1.15rem;
-          color: var(--main-color);
-          font-size: 0.875rem;
-          letter-spacing: 0.3px;
+        .got-it-form-wrap {
+          min-height: 3.325rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+          font-weight: 300;
+          line-height: 1.33;
+          font-size: 1.125rem;
+          color: var(--dark-color);
         }
       }
     }
   }
-  .forgot-close {
+  .got-it-close {
       display: flex;
       justify-content: flex-end;
-      .forgot-close-wrap {
+      .got-it-close-wrap {
         padding: 1.15rem 1.95rem;
-        .forgot-close__x {
+        .got-it-close__x {
           position: relative;
           // padding: 1rem;
           &:hover {
@@ -115,13 +113,4 @@
             }    
       }
     }
-}
-.got-it-wrap {
-  height: 100%; 
-  &.hide {
-    visibility: hidden;
-  }
-  &.show {
-    visibility: visible;
-  }
 }

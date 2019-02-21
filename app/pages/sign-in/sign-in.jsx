@@ -12,8 +12,8 @@ class SignIn extends Component {
     errMessage: (() => {
       // when loading the constructor, check url for an error
       let params = (new URL(document.location)).searchParams
-      let error = params.get('error')
-      if (error === 'incorrect') {
+      let error = params.get(_config.url_params.error)
+      if (error === _config.url_params.values.incorrect) {
         return _config.translations.sing_in.error_incorrect
       } else {
         return ''
@@ -90,14 +90,14 @@ class SignIn extends Component {
               defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
             <span className='login-form__text or dispay-none' >{_config.translations.sing_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
-            <input type='text'
-              name='email'
-              style={{background: backgroundImage(mail)}}
-              ref={email => this.email = email}
-              onChange={e => this.setState({emailValue: e.target.value})}
-              className='group__input email'
-              placeholder={_config.translations.sing_in.enter_email}
-              autoComplete='username' />
+              <input type='text'
+                name='email'
+                style={{background: backgroundImage(mail)}}
+                ref={email => this.email = email}
+                onChange={e => this.setState({emailValue: e.target.value})}
+                className='group__input email'
+                placeholder={_config.translations.sing_in.enter_email}
+                autoComplete='username' />
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
               <input type='password'

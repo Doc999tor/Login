@@ -7,8 +7,7 @@
     "author": "kirus",
     "scripts": {
         "webdriver": "webdriver-manager start",
-        "start-mobile": "webpack-dev-server --port 8080 --hot --host 0.0.0.0 --module-bind 'css=style!css'",
-        "start": "webpack-dev-server --hot --module-bind 'css=style!css' --mode development",
+        "start": "webpack-dev-server --port 8080 --hot --host 0.0.0.0 --module-bind 'css=style!css' --mode development",
         "build-p": "webpack -p --progress --env production-p",
         "test": "jest --no-cache",
         "test-watch": "jest --no-cache --watch",

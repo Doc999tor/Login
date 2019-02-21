@@ -1,6 +1,6 @@
 var _config = {}
 
-_config.data = {isRTL: true}
+_config.data = {isRTL: false}
 
 _config.urls = {
   static: './media/' // project images
@@ -9,7 +9,12 @@ _config.routing = {
   sing_in_path: '/',
   forgot_path: '/forgot'
 }
-
+_config.url_params = {
+  error: 'error',
+  values: {
+    incorrect: 'incorrect'
+  }
+}
 _config.translations = {
   sing_in: {
     title: 'Atzmaim',
@@ -26,7 +31,6 @@ _config.translations = {
     wrong_email: 'Wrong email try again!',
     enter_email_pass: 'Enter email and password',
     check_login: '/check-login',
-
     // new
     error_incorrect: 'Email or password is not correct'
   },
@@ -38,8 +42,9 @@ _config.translations = {
     send: 'send',
     received_request: 'We received your request',
     call_you_back: 'we will call you back as soon as possible',
+    got_it: 'got it',
+    call_you_back_possible: 'We received your request, we will call you back as soon as possible',
     atzma_im: 'Atzma.im',
-    got_it: 'got it'
+    atzma_phone: '+972549793976'
   }
-
 }
