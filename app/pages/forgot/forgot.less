@@ -4,9 +4,8 @@
     background: var(--white-color);
     color: var(--dark-color);
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     .forgot-wrap {
-      height: 100%;
       text-align: center;
       .forgot-htm__logo {
         width: 60%;
@@ -17,19 +16,22 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 72%;
+        width: 80%;
         margin: 0 auto;
-        height: 44%;
+        height: 48%;
         justify-content: space-between;
         .forgot-wrap-wrap {
           display: flex;
+          align-items: center;
           flex-direction: column;
-          flex: 0.675;
-          justify-content: space-between;
           .forgot-form__text {
             font-size: 1.5rem;
             width: 100%;
           }          
+        }
+        .forgot-wrap-group {
+          width: 84%;
+          margin-top: 3rem;
         }
         .forgot-form__button {
           width: 100%;
@@ -70,7 +72,7 @@
           }
         }
         .forgot-form__forgot {
-          margin: 0 1.15rem;
+          margin: 1.2rem 2rem 0rem 2rem;
           color: var(--main-color);
           font-size: 0.875rem;
           letter-spacing: 0.3px;

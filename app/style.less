@@ -2,6 +2,7 @@
 html, body, #root, .sign-in  {
   height: 100%;
 }
+
 body {
     font-family: var(--font-family);
     font-weight: normal;
@@ -23,10 +24,11 @@ body[dir=rtl] {
   }
 }
 // click text shadow
-form__forgot:active, .dont-have-acc__sing-up:active, { 
+.login-form__forgot:hover, .dont-have-acc__sign-up:hover { 
   text-shadow: 1px 1px 2px var(--white-color), 0 0 1em var(--dark-color);
   transition: text-shadow 0.2s linear;
 }
+
 button {
   border: none;
 }

@@ -9,7 +9,7 @@ import './style.less'
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route exact path={_config.routing.sing_in_path} component={SignIn} />
+      <Route exact path={_config.routing.sign_in_path} component={SignIn} />
       <Route path={_config.routing.forgot_path} component={Forgot} />
     </Switch>
   </Router>, document.getElementById('root'))
