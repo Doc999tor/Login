@@ -25,7 +25,10 @@ _config.translations = {
     missing_password: 'Missing password',
     wrong_email: 'Wrong email try again!',
     enter_email_pass: 'Enter email and password',
-    check_login: '/check-login'
+    check_login: '/check-login',
+
+    // new
+    error_incorrect: 'Email or password is not correct'
   },
   forgot: {
     forgot_pass: 'Forgot your password?',

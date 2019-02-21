@@ -9,7 +9,16 @@ class SignIn extends Component {
     isValidPass: true,
     passValue: '',
     emailValue: '',
-    errMessage: ''
+    errMessage: (() => {
+      // when loading the constructor, check url for an error
+      let params = (new URL(document.location)).searchParams
+      let error = params.get('error')
+      if (error === 'incorrect') {
+        return _config.translations.sing_in.error_incorrect
+      } else {
+        return ''
+      }
+    })()
   }
   // toggle password -> show/hide
   togglePass = () => {
