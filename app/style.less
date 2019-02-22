@@ -18,9 +18,13 @@ body[dir=rtl] {
   img {
     transform: scaleX(-1);
   }
-  .sign-in .sign-in-wrap form .group.password .group__eye {
+  .sign-in .sign-in-wrap form .group.password .group__eye, .sign-in .sign-in-wrap form .group .group__email .group__lock {
     left: 0;
     right: inherit;
+  }
+  .sign-in .sign-in-wrap form .group .group__email{
+    right: 0;
+    left: inherit;
   }
 }
 // click text shadow
@@ -36,18 +40,12 @@ button:focus {
   outline: none !important;
   box-shadow: 0 0 .5rem var(--sec-bgcolor);
 }
-// browser autofill background color change
+/* Change autocompeted the white to var(--sec-color) */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
-input:-webkit-autofill, 
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  transition: background-color 5000s ease-in-out 0s;
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px var(--sec-color) inset !important;
 }
 input[type="text"], input[type="password"] {
   background-color : var(--sec-color) !important; 

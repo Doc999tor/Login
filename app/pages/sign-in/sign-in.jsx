@@ -87,9 +87,11 @@ class SignIn extends Component {
               defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
             <span className='login-form__text or dispay-none' >{_config.translations.sign_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
+            <img className='group__email'
+                onClick={this.togglePass}
+                src={_config.urls.static + mail} />
               <input type='text'
                 name='email'
-                style={{background: backgroundImage(mail)}}
                 ref={email => this.email = email}
                 onChange={e => this.setState({emailValue: e.target.value})}
                 onBlur={this.checkStuff}
@@ -98,9 +100,11 @@ class SignIn extends Component {
                 autoComplete='username' />
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
+            <img className='group__lock'
+                onClick={this.togglePass}
+                src={_config.urls.static + lock} />
               <input type='password'
                 name='pass'
-                style={{background: backgroundImage(lock)}}
                 onChange={e => this.setState({passValue: e.target.value})}
                 onBlur={this.checkStuff}
                 ref={pass => this.pass = pass}
