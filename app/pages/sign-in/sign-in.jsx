@@ -72,7 +72,7 @@ class SignIn extends Component {
     let mail = this.state.isValidEmail ? 'mail.svg' : 'mail-err.svg'
     let lock = this.state.isValidPass ? 'lock.svg' : 'lock-err.svg'
     return (
-      <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}image.png#blur)`}} className='sign-in'>
+      <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}login-bg.jpg#blur)`}} className='sign-in'>
         <div className='sign-in-wrap'>
           <img className='sign-in-htm__logo' src={_config.urls.static + 'logo.svg'} />
           <form action={_config.urls.check_login} method='POST'>
