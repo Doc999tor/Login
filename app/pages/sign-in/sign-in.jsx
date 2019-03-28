@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {backgroundImage} from 'services'
 import './sign-in.less'
 
 class SignIn extends Component {
@@ -22,52 +21,48 @@ class SignIn extends Component {
   }
   // toggle password -> show/hide
   togglePass = () => {
-    if (this.pass.type === 'password') {
-      this.pass.type = 'text'
+    let inputPass = this.pass
+    if (inputPass.type === 'password') {
+      inputPass.type = 'text'
       this.setState({isVisiblePass: true})
     } else {
       this.setState({isVisiblePass: false})
-      this.pass.type = 'password'
+      inputPass.type = 'password'
     }
   }
   // check email and pass values
-  checkStuff = () => {
+  checkPassAndEmail = () => {
     // if password and email empty
     if (this.state.emailValue === '' && this.state.passValue === '') {
-      this.setState({isValidEmail: false})
-      this.setState({isValidPass: false})
-      this.setState({errMessage: _config.translations.sign_in.enter_email_pass})
+      this.setState({isValidEmail: false, isValidPass: false, errMessage: _config.translations.sign_in.enter_email_pass})
       return false
     }
+  }
+  checkEmail = () => {
     // mail epmty
     if (this.state.emailValue === '') {
-      this.setState({isValidEmail: false})
-      this.setState({errMessage: _config.translations.sign_in.missing_email})
-      return false
+      this.setState({isValidEmail: false, errMessage: _config.translations.sign_in.missing_email})
     } else {
       this.setState({errMessage: ''})
       // check valid email
       let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       // mail not valid (if not: @, .com or there are prohibited characters)
       if (!re.test(this.state.emailValue)) {
-        this.setState({isValidEmail: false})
-        this.setState({errMessage: _config.translations.sign_in.wrong_email})
-        return false
+        this.setState({isValidEmail: false, errMessage: _config.translations.sign_in.wrong_email})
       } else {
-        this.setState({errMessage: ''})
-        this.setState({isValidEmail: true})
+        this.setState({errMessage: '', isValidEmail: true})
       }
     }
+  }
+  checkPassword = () => {
     // pass epmty
     if (this.state.passValue === '') {
-      this.setState({isValidPass: false})
-      this.setState({errMessage: _config.translations.sign_in.missing_password})
-      return false
+      this.setState({isValidPass: false, errMessage: _config.translations.sign_in.missing_password})
     } else {
-      this.setState({isValidPass: true})
-      this.setState({errMessage: ''})
+      this.setState({isValidPass: true, errMessage: ''})
     }
   }
+
   render () {
     let mail = this.state.isValidEmail ? 'mail.svg' : 'mail-err.svg'
     let lock = this.state.isValidPass ? 'lock.svg' : 'lock-err.svg'
@@ -87,26 +82,24 @@ class SignIn extends Component {
               defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
             <span className='login-form__text or dispay-none' >{_config.translations.sign_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
-            <img className='group__email'
-                onClick={this.togglePass}
+              <img className='group__email'
                 src={_config.urls.static + mail} />
-              <input type='text'
+              <input type='email'
                 name='email'
                 ref={email => this.email = email}
                 onChange={e => this.setState({emailValue: e.target.value})}
-                onBlur={this.checkStuff}
+                onBlur={this.checkEmail}
                 className='group__input email'
                 placeholder={_config.translations.sign_in.enter_email}
                 autoComplete='username' />
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
-            <img className='group__lock'
-                onClick={this.togglePass}
+              <img className='group__lock'
                 src={_config.urls.static + lock} />
               <input type='password'
                 name='pass'
                 onChange={e => this.setState({passValue: e.target.value})}
-                onBlur={this.checkStuff}
+                onBlur={this.checkPassword}
                 ref={pass => this.pass = pass}
                 className='group__input password'
                 data-type='password'
@@ -120,14 +113,16 @@ class SignIn extends Component {
               {this.state.errMessage && <img className='login-err__img' src={_config.urls.static + 'vector.svg'} />}
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
-            <button type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'} className='login-form__button login-button' onClick={this.checkStuff}>
+            <button className='login-form__button login-button'
+              type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
+              onClick={() => { this.checkEmail(); this.checkPassword(); this.checkPassAndEmail() }}>
               {_config.translations.sign_in.login}
             </button>
             <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>{_config.translations.sign_in.forgot_password}</span>
           </form>
           <footer className='dont-have-acc'>{_config.translations.sign_in.dont_have_acc} &nbsp;
-          <span className='dont-have-acc__sign-up'>{_config.translations.sign_in.sign_up}</span>
-        </footer>
+            <span className='dont-have-acc__sign-up'>{_config.translations.sign_in.sign_up}</span>
+          </footer>
         </div>
       </div>
     )
