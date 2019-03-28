@@ -64,8 +64,6 @@ class SignIn extends Component {
   }
 
   render () {
-    let mail = this.state.isValidEmail ? 'mail.svg' : 'mail-err.svg'
-    let lock = this.state.isValidPass ? 'lock.svg' : 'lock-err.svg'
     return (
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}login-bg.jpg#blur)`}} className='sign-in'>
         <div className='sign-in-wrap'>
@@ -83,7 +81,7 @@ class SignIn extends Component {
             <span className='login-form__text or dispay-none' >{_config.translations.sign_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
               <img className='group__email'
-                src={_config.urls.static + mail} />
+                src={_config.urls.static + (this.state.isValidEmail ? 'mail.svg' : 'mail-err.svg')} />
               <input type='email'
                 name='email'
                 ref={email => this.email = email}
@@ -95,7 +93,7 @@ class SignIn extends Component {
             </div>
             <div className={`group password ${this.state.isValidPass ? '' : 'err'}`}>
               <img className='group__lock'
-                src={_config.urls.static + lock} />
+                src={_config.urls.static + (this.state.isValidPass ? 'lock.svg' : 'lock-err.svg')} />
               <input type='password'
                 name='pass'
                 onChange={e => this.setState({passValue: e.target.value})}
@@ -115,10 +113,12 @@ class SignIn extends Component {
             </div>
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
-              onClick={() => { this.checkEmail(); this.checkPassword(); this.checkPassAndEmail() }}>
+              onClick={() => { this.checkPassword(); this.checkEmail(); this.checkPassAndEmail() }}>
               {_config.translations.sign_in.login}
             </button>
-            <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>{_config.translations.sign_in.forgot_password}</span>
+            <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>
+              {_config.translations.sign_in.forgot_password}
+            </span>
           </form>
           <footer className='dont-have-acc'>{_config.translations.sign_in.dont_have_acc} &nbsp;
             <span className='dont-have-acc__sign-up'>{_config.translations.sign_in.sign_up}</span>
