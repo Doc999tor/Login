@@ -34,6 +34,7 @@ _config.translations = {
     missing_password: 'Missing password',
     wrong_email: 'Wrong email try again!',
     enter_email_pass: 'Enter email and password',
+    password_short: 'password is too short',
     // new
     error_incorrect: 'Your e-mail or password is incorrect'
   },

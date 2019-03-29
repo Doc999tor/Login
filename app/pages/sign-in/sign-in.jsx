@@ -36,21 +36,23 @@ class SignIn extends Component {
     if (this.state.emailValue === '' && this.state.passValue === '') {
       this.setState({isValidEmail: false, isValidPass: false, errMessage: _config.translations.sign_in.enter_email_pass})
       return false
-    }
+    } else { return true }
   }
   checkEmail = () => {
     // mail epmty
     if (this.state.emailValue === '') {
       this.setState({isValidEmail: false, errMessage: _config.translations.sign_in.missing_email})
+      return false
     } else {
-      this.setState({errMessage: ''})
       // check valid email
       let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       // mail not valid (if not: @, .com or there are prohibited characters)
       if (!re.test(this.state.emailValue)) {
         this.setState({isValidEmail: false, errMessage: _config.translations.sign_in.wrong_email})
+        return false
       } else {
         this.setState({errMessage: '', isValidEmail: true})
+        return true
       }
     }
   }
@@ -58,8 +60,14 @@ class SignIn extends Component {
     // pass epmty
     if (this.state.passValue === '') {
       this.setState({isValidPass: false, errMessage: _config.translations.sign_in.missing_password})
+      this.checkPassAndEmail()
+      return false
+    } else if (this.state.passValue.length < 8) {
+      this.setState({isValidPass: false, errMessage: _config.translations.sign_in.password_short})
+      return false
     } else {
       this.setState({isValidPass: true, errMessage: ''})
+      return true
     }
   }
 
@@ -86,7 +94,8 @@ class SignIn extends Component {
                 name='email'
                 ref={email => this.email = email}
                 onChange={e => this.setState({emailValue: e.target.value})}
-                onBlur={this.checkEmail}
+                // if the password and email are empty then we do not do an additional check
+                onBlur={() => { this.checkPassAndEmail() && this.checkEmail() }}
                 className='group__input email'
                 placeholder={_config.translations.sign_in.enter_email}
                 autoComplete='username' />
@@ -97,7 +106,8 @@ class SignIn extends Component {
               <input type='password'
                 name='pass'
                 onChange={e => this.setState({passValue: e.target.value})}
-                onBlur={this.checkPassword}
+                // if the password and email are empty then we do not do an additional check
+                onBlur={() => { this.checkPassAndEmail() && this.checkPassword() }}
                 ref={pass => this.pass = pass}
                 className='group__input password'
                 data-type='password'
@@ -113,7 +123,7 @@ class SignIn extends Component {
             </div>
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
-              onClick={() => { this.checkPassword(); this.checkEmail(); this.checkPassAndEmail() }}>
+              onClick={() => { this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() }}>
               {_config.translations.sign_in.login}
             </button>
             <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>
