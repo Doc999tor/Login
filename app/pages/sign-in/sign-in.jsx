@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {apiServices} from 'services'
 import './sign-in.less'
 
 class SignIn extends Component {
@@ -76,7 +77,7 @@ class SignIn extends Component {
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}login-bg.jpg#blur)`}} className='sign-in'>
         <div className='sign-in-wrap'>
           <img className='sign-in-htm__logo' src={_config.urls.static + 'logo.svg'} />
-          <form action={_config.urls.check_login} method='POST'>
+          <form ref={form => this.form = form} action={_config.urls.check_login} method='POST'>
             <div className='login-form__text'>{_config.translations.sign_in.title}</div>
             <button className='login-form__button google dispay-none'>
               <img className='login-form__img' src={_config.urls.static + 'search.svg'} />
@@ -86,6 +87,7 @@ class SignIn extends Component {
               type='text'
               name='time_zone'
               defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
+            <input type='hidden' id='g-recaptcha-response' name='g-recaptcha-response' />
             <span className='login-form__text or dispay-none' >{_config.translations.sign_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
               <img className='group__email'
@@ -123,7 +125,17 @@ class SignIn extends Component {
             </div>
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
-              onClick={() => { this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() }}>
+              onClick={e => {
+                e.preventDefault()
+                grecaptcha.ready(() => {
+                  grecaptcha.execute('6LcXaJsUAAAAABggIFrA5GbeAX0T7RgnK6tohhqn', {action: 'homepage'}).then(token => {
+                    apiServices.post(`http://atzma.im/recaptcha.php?token=${token}`).then(response => {
+                      console.log(response)
+                      this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && this.form.submit()
+                    })
+                  })
+                })
+              }}>
               {_config.translations.sign_in.login}
             </button>
             <span className='login-form__forgot' onClick={() => this.props.history.push(_config.routing.forgot_path)}>

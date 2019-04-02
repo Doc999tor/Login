@@ -1,5 +1,12 @@
-import {serialize} from './helperServices'
-
+function serialize (obj) {
+  var str = []
+  for (var p in obj) {
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]))
+    }
+  }
+  return str.join('&')
+}
 const config = window._config
 const myHeaders = new Headers()
 
@@ -33,8 +40,8 @@ export async function get(url, params, argOptions = {}) {
 }
 
 export async function post(url, params, argOptions = {}) {
-    var apiUrl = config.urls.base + '/' + url
-    myHeaders.set('Content-Type', 'multipart/form-data. Use FormData object')
+    var apiUrl = url
+    myHeaders.set('Content-Type', 'application/x-www-form-urlencoded')
 
     baseOptions.method = 'POST'
     baseOptions.body = serialize(params)
@@ -98,10 +105,10 @@ var _promise = (apiUrl, options) => {
                 if(reqConfig.method === "HEAD" && response.status === 200){
                     resolve(response)
                   }
-                if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 201 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {
+                if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 200 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {
                     response.text().then(formattedData => {
                         formattedData
-                            ? resolve(JSON.parse(formattedData))
+                            ? resolve(formattedData)
                             : resolve()
                     })
                 }
