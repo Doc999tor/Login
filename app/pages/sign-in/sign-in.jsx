@@ -129,7 +129,7 @@ class SignIn extends Component {
                 e.preventDefault()
                 grecaptcha.ready(() => {
                   grecaptcha.execute('6LcXaJsUAAAAABggIFrA5GbeAX0T7RgnK6tohhqn', {action: 'homepage'}).then(token => {
-                    apiServices.post(`http://atzma.im/recaptcha.php?token=${token}`).then(response => {
+                    apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
                       console.log(response)
                       this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && this.form.submit()
                     })

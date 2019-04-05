@@ -4,7 +4,10 @@ _config.data = {isRTL: false}
 
 _config.urls = {
   check_login: '/check-login',
-  static: './media/' // project images
+  static: './media/',
+
+  // api
+  recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}'
 }
 
 _config.routing = {

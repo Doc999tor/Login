@@ -14,12 +14,7 @@ var baseOptions = {
     mode: 'cors'
 }
 
-if (window.location.origin === 'http://localhost:3000') {
-    myHeaders.append('Content-Type', 'application/x-www-form-urlencoded')
-} else {
-    myHeaders.append('X-Requested-With', 'XMLHttpRequest')
-    baseOptions.credentials = 'include'
-}
+myHeaders.append("X-Requested-With", "XMLHttpRequest")
 
 export async function get(url, params, argOptions = {}) {
     var apiUrl = config.urls.base + '/' + url + (
