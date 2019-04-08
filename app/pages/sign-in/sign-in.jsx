@@ -87,7 +87,6 @@ class SignIn extends Component {
               type='text'
               name='time_zone'
               defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
-            <input type='hidden' id='g-recaptcha-response' name='g-recaptcha-response' />
             <span className='login-form__text or dispay-none' >{_config.translations.sign_in.login_or}</span>
             <div className={`group email ${this.state.isValidEmail ? '' : 'err'}`}>
               <img className='group__email'
@@ -123,15 +122,21 @@ class SignIn extends Component {
               {this.state.errMessage && <img className='login-err__img' src={_config.urls.static + 'vector.svg'} />}
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
+            <div id='g-recaptcha-response' name='g-recaptcha-response' className='g-recaptcha' data-size='invisible' data-sitekey='6LcA3JwUAAAAAN0i_W6QTvoo9FW-9ectGBzB8zyf' />
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
               onClick={e => {
+                        grecaptcha.execute()
                 e.preventDefault()
-                grecaptcha.ready(() => {
+                this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && grecaptcha.ready(() => {
                   grecaptcha.execute('6LcXaJsUAAAAABggIFrA5GbeAX0T7RgnK6tohhqn', {action: 'homepage'}).then(token => {
                     apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
-                      console.log(response)
-                      this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && this.form.submit()
+                      console.log('recaptcha', response)
+                      if (!response.success) {
+                        grecaptcha.execute()
+                      } else {
+                        this.form.submit()
+                      }
                     })
                   })
                 })
