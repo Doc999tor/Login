@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {apiServices} from 'services'
+import {loadJS, apiServices} from 'services'
 import './sign-in.less'
 
 class SignIn extends Component {
@@ -19,6 +19,12 @@ class SignIn extends Component {
         return ''
       }
     })()
+  }
+  componentDidMount () {
+    // recaptcha v3
+    loadJS(`https://www.google.com/recaptcha/api.js?render=${_config.keys.recaptcha_v3}`, document.body)
+    // recaptcha v2
+    loadJS('https://www.google.com/recaptcha/api.js', document.body)
   }
   // toggle password -> show/hide
   togglePass = () => {
@@ -122,14 +128,13 @@ class SignIn extends Component {
               {this.state.errMessage && <img className='login-err__img' src={_config.urls.static + 'vector.svg'} />}
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
-            <div id='g-recaptcha-response' name='g-recaptcha-response' className='g-recaptcha' data-size='invisible' data-sitekey='6LcA3JwUAAAAAN0i_W6QTvoo9FW-9ectGBzB8zyf' />
+            <div id='g-recaptcha-response' name='g-recaptcha-response' className='g-recaptcha' data-size='invisible' data-sitekey={_config.keys.recaptcha_v2} />
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
               onClick={e => {
-                        grecaptcha.execute()
                 e.preventDefault()
                 this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && grecaptcha.ready(() => {
-                  grecaptcha.execute('6LcXaJsUAAAAABggIFrA5GbeAX0T7RgnK6tohhqn', {action: 'homepage'}).then(token => {
+                  grecaptcha.execute(_config.keys.recaptcha_v3, {action: 'homepage'}).then(token => {
                     apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
                       console.log('recaptcha', response)
                       if (!response.success) {
