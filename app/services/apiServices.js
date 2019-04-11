@@ -17,7 +17,7 @@ var baseOptions = {
 myHeaders.append("X-Requested-With", "XMLHttpRequest")
 
 export async function get(url, params, argOptions = {}) {
-    var apiUrl = config.urls.base + '/' + url + (
+    var apiUrl = url + (
         params
         ? '?' + serialize(params)
         : '')
@@ -101,11 +101,7 @@ var _promise = (apiUrl, options) => {
                     resolve(response)
                   }
                 if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 200 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {
-                    response.text().then(formattedData => {
-                        formattedData
-                            ? resolve(formattedData)
-                            : resolve()
-                    })
+                    resolve(response.json())
                 }
                 if (response.status === 503) {
                     setTimeout(() => {

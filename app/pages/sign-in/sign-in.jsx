@@ -136,8 +136,7 @@ class SignIn extends Component {
                 this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && grecaptcha.ready(() => {
                   grecaptcha.execute(_config.keys.recaptcha_v3, {action: 'homepage'}).then(token => {
                     apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
-                      console.log('recaptcha', response)
-                      if (!response.success) {
+                      if (!JSON.parse(response.success)) {
                         grecaptcha.execute()
                       } else {
                         this.form.submit()
