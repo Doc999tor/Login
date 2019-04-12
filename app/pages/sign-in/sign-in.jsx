@@ -136,9 +136,9 @@ class SignIn extends Component {
                 this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && grecaptcha.ready(() => {
                   grecaptcha.execute(_config.keys.recaptcha_v3, {action: 'homepage'}).then(token => {
                     apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
-                      if (!JSON.parse(response.success)) {
+                      if (!JSON.parse(response.success) && !grecaptcha.getResponse()) {
                         grecaptcha.execute()
-                      } else {
+                      } else if (grecaptcha.getResponse() && grecaptcha.getResponse().length) {
                         this.form.submit()
                       }
                     })
