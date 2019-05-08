@@ -20,12 +20,7 @@ class SignIn extends Component {
       }
     })()
   }
-  componentDidMount () {
-    // recaptcha v3
-    loadJS(`https://www.google.com/recaptcha/api.js?render=${_config.keys.recaptcha_v3}`, document.body)
-    // recaptcha v2
-    loadJS('https://www.google.com/recaptcha/api.js', document.body)
-  }
+
   // toggle password -> show/hide
   togglePass = () => {
     let inputPass = this.pass
@@ -77,11 +72,7 @@ class SignIn extends Component {
       return true
     }
   }
-  recaptchaCallback = () => {
-    if (grecaptcha.getResponse() && grecaptcha.getResponse().length) {
-      this.form.submit()
-    }
-  }
+
   render () {
     return (
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}login-bg.jpg#blur)`}} className='sign-in'>
@@ -132,21 +123,11 @@ class SignIn extends Component {
               {this.state.errMessage && <img className='login-err__img' src={_config.urls.static + 'vector.svg'} />}
               <span className='login-err__text'>{this.state.errMessage}</span>
             </div>
-            <div id='g-recaptcha-response' name='g-recaptcha-response' className='g-recaptcha' data-size='invisible' data-sitekey={_config.keys.recaptcha_v2} />
             <button className='login-form__button login-button'
               type={this.state.isValidEmail && this.state.isValidPass ? 'submit' : 'button'}
               onClick={e => {
                 e.preventDefault()
-                this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && grecaptcha.ready(() => {
-                  grecaptcha.execute(_config.keys.recaptcha_v3, {action: 'homepage'}).then(token => {
-                    apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
-                      if (!JSON.parse(response.success) && !grecaptcha.getResponse()) {
-                        grecaptcha.execute()
-                      }
-                    })
-                  })
-                })
-                this.recaptchaCallback()
+                this.checkPassword() && this.checkEmail() && this.checkPassAndEmail() && this.form.submit()
               }}>
               {_config.translations.sign_in.login}
             </button>
