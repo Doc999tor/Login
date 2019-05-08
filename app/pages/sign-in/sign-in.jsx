@@ -77,7 +77,11 @@ class SignIn extends Component {
       return true
     }
   }
-
+  recaptchaCallback = () => {
+    if (grecaptcha.getResponse() && grecaptcha.getResponse().length) {
+      this.form.submit()
+    }
+  }
   render () {
     return (
       <div style={{backgroundImage: `linear-gradient( rgba(79, 45, 167, 0.7) 100%, rgba(93, 54, 177, 0.7)100%), url(${_config.urls.static}login-bg.jpg#blur)`}} className='sign-in'>
@@ -138,12 +142,11 @@ class SignIn extends Component {
                     apiServices.post(_config.urls.recaptcha_post.replace('{token}', token)).then(response => {
                       if (!JSON.parse(response.success) && !grecaptcha.getResponse()) {
                         grecaptcha.execute()
-                      } else if (grecaptcha.getResponse() && grecaptcha.getResponse().length) {
-                        this.form.submit()
                       }
                     })
                   })
                 })
+                this.recaptchaCallback()
               }}>
               {_config.translations.sign_in.login}
             </button>
