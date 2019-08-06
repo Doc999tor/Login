@@ -83,6 +83,7 @@
         "npm": "^5.6.0",
         "rename-output-webpack-plugin": "^1.0.1",
         "script-ext-html-webpack-plugin": "^1.8.8",
+        "ngrock-webpack-plugin": "0.0.2",
         "style-loader": "^0.18.1",
         "stylint": "^1.5.9",
         "url-loader": "^0.5.8",

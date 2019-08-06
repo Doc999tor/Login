@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {loadJS, apiServices} from 'services'
 import './sign-in.less'
 
 class SignIn extends Component {
