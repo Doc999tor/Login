@@ -113,7 +113,7 @@ var _promise = (apiUrl, options) => {
                     reject(response)
                 }
                 if (response.status === 401) {
-                    window.location.href = window.location.origin + '/login'
+                    window.location.href = window.location.origin + _config.urls.login
                 }
             }).catch((err) => {
                 console.error('Fetch Error', err)

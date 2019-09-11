@@ -4,9 +4,11 @@ _config.data = {isRTL: false}
 
 _config.urls = {
   check_login: '/check-login',
+  sign_up: '/signup',
+  login: '/login',
   static: './media/',
 
-  // api
+  // api 
   recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}'
 }
 _config.keys = {

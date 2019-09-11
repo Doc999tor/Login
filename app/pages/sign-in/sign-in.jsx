@@ -134,7 +134,8 @@ class SignIn extends Component {
               {_config.translations.sign_in.forgot_password}
             </span>
           </form>
-          <footer className='dont-have-acc'>{_config.translations.sign_in.dont_have_acc} &nbsp;
+          <footer className='dont-have-acc' onClick={() => window.location.href = window.location.origin + _config.urls.sign_up}>
+            {_config.translations.sign_in.dont_have_acc} &nbsp;
             <span className='dont-have-acc__sign-up'>{_config.translations.sign_in.sign_up}</span>
           </footer>
         </div>
