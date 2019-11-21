@@ -1,7 +1,6 @@
 "use strict";
 
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const renameOutputPlugin = require('rename-output-webpack-plugin');
@@ -148,7 +147,6 @@ function getProdSettings(module) {
           historyApiFallback: true
       },
       plugins: [
-          new ExtractTextPlugin({filename: './bundle.css', disable: true, allChunks: true}),
           new CleanWebpackPlugin(pathsToClean, cleanOptions),
           new renameOutputPlugin({
               'main': 'bundle.min.js'
