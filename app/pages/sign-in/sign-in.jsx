@@ -63,7 +63,7 @@ class SignIn extends Component {
       this.setState({isValidPass: false, errMessage: _config.translations.sign_in.missing_password})
       this.checkPassAndEmail()
       return false
-    } else if (/*this.state.passValue.length < 8*/ false) {
+    } else if (this.state.passValue.length < 3) {
       this.setState({isValidPass: false, errMessage: _config.translations.sign_in.password_short})
       return false
     } else {
