@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["airbnb", "airbnb/hooks"],
+  "globals": {
+    "_config": false
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-one-expression-per-line": "off",
+    "react/state-in-constructor": "off",
+    "react/no-access-state-in-setstate": "off",
+    "react/destructuring-assignment": ["off", "always"],
+    "jsx-quotes": ["error", "prefer-single"],
+    "prefer-arrow-callback": "off",
+    "quotes": ["error", "single"],
+    "prefer-destructuring": "off",
+    "comma-dangle": "off",
+    "semi": "off",
+    "object-curly-newline": "off",
+    "no-nested-ternary": "off",
+    "arrow-parens": ["off", "always"]
+
+  }
+}
