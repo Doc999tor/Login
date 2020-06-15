@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import SignIn from './pages/sign-in/sign-in.jsx'
+import SignIn from './pages/log_in/log_in.jsx'
 // import Forgot from './pages/forgot/forgot.jsx'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
