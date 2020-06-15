@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import SendModal from '../send_modal/index.jsx'
 import './log_in.less'
 
 const LogIn = () => {
@@ -76,52 +75,48 @@ const LogIn = () => {
             </a>
           </div>
         </div>
-        {send
-          ? <SendModal sending={sending} />
-          : (
-            <div className='log-in-wrap'>
-              <h1>{_config.translations.log_in.main_title}</h1>
-              <p className='log-in-question'><span>{_config.translations.log_in.subtitle}</span><a href={window.location.origin + _config.urls.login}>{_config.translations.log_in.sign_up_link_label}</a></p>
-              <form action={_config.urls.check_login} method='POST'>
-                <div className='text-content-wrap'>
-                  <input className='time-zone'
-                    type='text'
-                    name='time_zone'
-                    defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
-                  <div className={`group${validEmail ? '' : ' err'}`}>
-                    <img className='phone_img' src={`${_config.urls.static}ic_email.svg`} />
-                    <input
-                      type='email'
-                      name='email'
-                      value={emailValue}
-                      onBlur={handleCheckEmail}
-                      className='group__input'
-                      onChange={handleChangeEmail}
-                      autoComplete='username'
-                      placeholder={_config.translations.log_in.email_placeholder}
-                    />
-                  </div>
-                  <div className={`group${validPass ? '' : ' err_pass'}`}>
-                    <img className='phone_img' src={`${_config.urls.static}ic_pass.svg`} />
-                    <input
-                      type={showPass ? 'text' : 'password'}
-                      name='pass'
-                      value={passValue}
-                      className='group__input'
-                      onChange={handleCangePass}
-                      onBlur={handleSetPassValue}
-                      autoComplete='current-password'
-                      placeholder={_config.translations.log_in.password_placeholder}
-                    />
-                    {passValue && <img className='group__eye' onClick={handleSetShowPassValue} src={_config.urls.static + (showPass ? 'eye-off.svg' : 'eye.svg')} />}
-                  </div>
+          <div className='log-in-wrap'>
+            <h1>{_config.translations.log_in.main_title}</h1>
+            <p className='log-in-question'><span>{_config.translations.log_in.subtitle}</span><a href={window.location.origin + _config.urls.login}>{_config.translations.log_in.sign_up_link_label}</a></p>
+            <form action={_config.urls.check_login} method='POST'>
+              <div className='text-content-wrap'>
+                <input className='time-zone'
+                  type='text'
+                  name='time_zone'
+                  defaultValue={Intl && Intl.DateTimeFormat && Intl.DateTimeFormat().resolvedOptions().timeZone} />
+                <div className={`group${validEmail ? '' : ' err'}`}>
+                  <img className='phone_img' src={`${_config.urls.static}ic_email.svg`} />
+                  <input
+                    type='email'
+                    name='email'
+                    value={emailValue}
+                    onBlur={handleCheckEmail}
+                    className='group__input'
+                    onChange={handleChangeEmail}
+                    autoComplete='username'
+                    placeholder={_config.translations.log_in.email_placeholder}
+                  />
                 </div>
-                <button className='login-form__button login-button' type={handleCheckPassEmail() ? 'submit' : 'button'} onClick={!handleCheckPassEmail() && handleSubmit}>
-                  {_config.translations.log_in.log_in_btn_label}
-                </button>
-              </form>
-            </div>
-          )}
+                <div className={`group${validPass ? '' : ' err_pass'}`}>
+                  <img className='phone_img' src={`${_config.urls.static}ic_pass.svg`} />
+                  <input
+                    type={showPass ? 'text' : 'password'}
+                    name='pass'
+                    value={passValue}
+                    className='group__input'
+                    onChange={handleCangePass}
+                    onBlur={handleSetPassValue}
+                    autoComplete='current-password'
+                    placeholder={_config.translations.log_in.password_placeholder}
+                  />
+                  {passValue && <img className='group__eye' onClick={handleSetShowPassValue} src={_config.urls.static + (showPass ? 'eye-off.svg' : 'eye.svg')} />}
+                </div>
+              </div>
+              <button className='login-form__button login-button' type={handleCheckPassEmail() ? 'submit' : 'button'} onClick={!handleCheckPassEmail() && handleSubmit}>
+                {_config.translations.log_in.log_in_btn_label}
+              </button>
+            </form>
+          </div>
       </div>
     </div>
   )
