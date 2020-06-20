@@ -29,23 +29,28 @@ _config.routing = {
 }
 
 _config.translations = {
-  sign_in: {
-    title: 'Atzmaim',
-    login_google: 'Log in with google',
-    login_or: 'or',
-    enter_email: 'enter your email',
-    enter_password: 'enter your password',
-    login: 'Login',
-    forgot_password: 'Forgot your password?',
-    dont_have_acc: 'Don’t have an account?',
-    sign_up: 'Sign Up',
-    missing_email: 'Missing email',
-    missing_password: 'Missing password',
-    wrong_email: 'Wrong email try again!',
-    enter_email_pass: 'Enter email and password',
-    password_short: 'password is too short',
-    // new
-    error_incorrect: 'Your e-mail or password is incorrect'
+  log_in: {
+    main_title: 'Welcome Back!',
+    subtitle: 'Don’t have an account?',
+    sign_up_link_label: 'Sign Up',
+    email_placeholder: 'Email address',
+    password_placeholder: 'Password',
+    forgot_password_label: 'Forgot your password?',
+    log_in_btn_label: 'log in',
+
+    // login_google: 'Log in with google',
+    // login_or: 'or',
+    // enter_email: 'enter your email',
+    // enter_password: 'enter your password',
+    // login: 'Login',
+    // dont_have_acc: 'Don’t have an account?',
+    // missing_email: 'Missing email',
+    // missing_password: 'Missing password',
+    // wrong_email: 'Wrong email try again!',
+    // enter_email_pass: 'Enter email and password',
+    // password_short: 'password is too short',
+    // // new
+    // error_incorrect: 'Your e-mail or password is incorrect'
   },
   forgot: {
     forgot_pass: 'Forgot your password?',

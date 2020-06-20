@@ -1,0 +1,91 @@
+.sending_wrap {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	min-height: 20.25rem;
+	.sending_body {
+		border-radius: 1rem;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		background-color: var(--white-color);
+		font-size: 1.2rem;
+		font-weight: 500;
+	}
+}
+.sending {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 4.5rem;
+	p {
+		margin: 0;
+		font-size: 1.125rem;
+		font-weight: 500;
+	}
+}
+.plane {
+	opacity: 0;
+	padding-bottom: 2rem;
+	animation: plane_in 1.5s ease-in 0.1s forwards infinite;
+}
+
+.success {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--main-color);
+	animation: success 0.6s;
+	margin-bottom: 3rem;
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+	p {
+		width: 80%;
+		margin: 0;
+		font-size: 1.125rem;
+		font-weight: 500;
+		text-align: center;
+	}
+} 
+.outer_circle {
+	margin-bottom: 1.375rem;
+	img {
+		animation: center_mark 0.3s;
+
+	}
+
+}
+@keyframes plane_in {
+	0% {
+		opacity: 0;
+		transform: translateX(-250%) scale(0.3);
+
+	}
+	50% {
+		opacity: 1;
+		transform: translateX(0%) scale(1);
+
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(250%) scale(0.3);
+	}
+
+}
+@keyframes success {
+	0% {
+		opacity: 0;
+
+	}
+}
+@keyframes center_mark {
+	0% {
+		transform: scale(-1, 0.3);
+
+	}
+
+}

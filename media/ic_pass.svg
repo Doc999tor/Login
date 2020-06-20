@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__ic_pass" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:#4f2da7}
+        </style>
+    </defs>
+    <path id="prefix__border" d="M0 0H24V24H0z" style="opacity:0;fill:#4f2da7"/>
+    <g id="prefix__ic_pass-2" data-name="ic_pass" transform="translate(0 .89)">
+        <path id="prefix__Path_2469" d="M17 7.44h-1V5.73a3.824 3.824 0 0 0-4-3.62 3.824 3.824 0 0 0-4 3.62v1.71H7a2.868 2.868 0 0 0-3 2.715V17.4a2.868 2.868 0 0 0 3 2.71h10a2.868 2.868 0 0 0 3-2.71v-7.24a2.868 2.868 0 0 0-3-2.72zm-7-1.71a2 2 0 0 1 4 0v1.71h-4zm8 11.67a.956.956 0 0 1-1 .9H7a.956.956 0 0 1-1-.9v-7.24a.956.956 0 0 1 1-.9h10a.956.956 0 0 1 1 .9z" class="prefix__cls-2" data-name="Path 2469"/>
+        <path id="prefix__Path_2470" d="M12 12a3 3 0 1 0 3 3 3 3 0 0 0-3-3zm0 4a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" class="prefix__cls-2" data-name="Path 2470" transform="translate(0 -1.413)"/>
+    </g>
+</svg>

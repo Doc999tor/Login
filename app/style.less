@@ -1,4 +1,7 @@
 @import './variables.css';
+* {
+  box-sizing: border-box;
+}
 html, body, #root {
   box-shadow: 0px 0px 15px 0px rgba(75, 75, 75, 0.2);
   // height: 100%;
@@ -15,27 +18,7 @@ body {
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: var(--white-color);
     margin: 0px !important;
-}
-// rtl
-body[dir=rtl] {
-  img {
-    transform: scaleX(-1);
-  }
-  .sign-in .sign-in-wrap form .group.password .group__eye, .sign-in .sign-in-wrap form .group .group__email .group__lock {
-    left: 0;
-    right: inherit;
-  }
-  .sign-in .sign-in-wrap form .group .group__email{
-    right: 0;
-    left: inherit;
-  }
-}
-// click text shadow
-.login-form__forgot:hover, .dont-have-acc__sign-up:hover { 
-  text-shadow: 0px 0px 2px var(--white-color), 0 0 1em var(--dark-color);
-  transition: text-shadow 0.2s linear;
 }
 
 button {
@@ -45,28 +28,6 @@ button:focus {
   outline: none !important;
   box-shadow: 0 0 .5rem var(--sec-bgcolor);
 }
-/* Change autocompeted the white to var(--sec-color) */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px var(--sec-color) inset !important;
-}
-input[type="text"], input[type="password"], input[type="email"] {
-  background-color : var(--sec-color) !important; 
-}
 input[type="password"]:focus, input[type="text"]:focus, input[type="email"]:focus {
   outline: none !important;
-  box-shadow: 0 0 10px var(--sec-bgcolor);
-}
-
-// temp 
-.dispay-none {
-  display: none !important;
-}
-.sign-in .sign-in-wrap form {
-  top: -4.5rem;
-}
-.sign-in .sign-in-wrap form .login-form__text {
-  padding: 0 0 1.5rem 0;
 }

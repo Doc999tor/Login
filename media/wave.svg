@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="160" viewBox="0 0 360 160">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <path id="prefix__mask" d="M0 0H360V160H0z" transform="translate(0 36)" style="fill:#7534f8"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-2">
+            <path id="prefix__path574" d="M-42.923-369.182h1500v741h-1500z" transform="translate(42.923 369.182)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-3">
+            <path id="prefix__path578" d="M-42.923-182.882h1500v398.405h-1500z" transform="translate(42.923 182.882)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-4">
+            <path id="prefix__path582" d="M-42.207-191.718h1472.69V221.95H-42.207z" transform="translate(42.207 191.718)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-5">
+            <path id="prefix__path586" d="M-41.488-206.5h1445.379v439.865H-41.488z" transform="translate(41.488 206.501)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-6">
+            <path id="prefix__path590" d="M-40.766-221.285H1377.3v466.066H-40.766z" transform="translate(40.766 221.285)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-7">
+            <path id="prefix__path594" d="M-40.043-236.069H1350.7V256.2H-40.043z" transform="translate(40.043 236.069)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-8">
+            <path id="prefix__path598" d="M-39.316-250.854h1363.422v518.469H-39.316z" transform="translate(39.316 250.854)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-9">
+            <path id="prefix__path602" d="M-38.586-265.638h1336.1v544.667h-1336.1z" transform="translate(38.586 265.638)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-10">
+            <path id="prefix__path606" d="M-37.856-280.426h1308.767v570.875H-37.856z" transform="translate(37.856 280.426)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-11">
+            <path id="prefix__path610" d="M-37.122-295.214h1281.434v597.08H-37.122z" transform="translate(37.122 295.214)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-12">
+            <path id="prefix__path614" d="M-36.386-310.006h1254.1v623.3h-1254.1z" transform="translate(36.386 310.006)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-13">
+            <path id="prefix__path618" d="M-35.648-324.8H1191.11v649.51H-35.648z" transform="translate(35.648 324.798)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-14">
+            <path id="prefix__path622" d="M-34.908-339.591h1199.419v675.726H-34.908z" transform="translate(34.908 339.591)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-15">
+            <path id="prefix__path626" d="M-34.167-354.386h1172.076v701.941H-34.167z" transform="translate(34.167 354.386)"/>
+        </clipPath>
+        <clipPath id="prefix__clip-path-16">
+            <path id="prefix__path630" d="M-33.424-369.182h1144.73v728.161H-33.424z" transform="translate(33.424 369.182)"/>
+        </clipPath>
+    </defs>
+    <g id="prefix__wave" transform="translate(0 -36)">
+        <g id="prefix__wave-2" data-name="wave" transform="translate(-343 -302)" style="opacity:.45">
+            <g id="prefix__wave-3" data-name="wave">
+                <g id="prefix__g644" transform="translate(0 342.594)">
+                    <g id="prefix__g642">
+                        <g id="prefix__g640">
+                            <g id="prefix__g638" transform="translate(.427 1.225)">
+                                <path id="prefix__path636" d="M476.2 180.834c-569.28-833.653-926.248-36.779-1498.831-385.572" transform="translate(1022.632 215.549)" style="stroke-width:1.333px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g656" transform="translate(1.05 326.346)">
+                    <g id="prefix__g654">
+                        <g id="prefix__g652">
+                            <g id="prefix__g650" transform="translate(.43 1.023)">
+                                <path id="prefix__path648" d="M467.535 187.909c-546.774-795.979-907.4-38.853-1471.564-411.891" transform="translate(1004.028 223.982)" style="stroke-width:1.256px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g668" transform="translate(2.103 299.161)">
+                    <g id="prefix__g666">
+                        <g id="prefix__g664">
+                            <g id="prefix__g662" transform="translate(.428 .943)">
+                                <path id="prefix__path660" d="M458.873 199.917C-65.394-558.389-429.68 158.989-985.426-238.3" transform="translate(985.426 238.295)" style="stroke-width:1.18px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g680" transform="translate(3.161 271.974)">
+                    <g id="prefix__g678">
+                        <g id="prefix__g676">
+                            <g id="prefix__g674" transform="translate(.423 .865)">
+                                <path id="prefix__path672" d="M450.21 211.925c-501.762-720.629-869.7-43-1417.031-464.533" transform="translate(966.822 252.609)" style="stroke-width:1.103px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g692" transform="translate(4.221 244.787)">
+                    <g id="prefix__g690">
+                        <g id="prefix__g688">
+                            <g id="prefix__g686" transform="translate(.414 .789)">
+                                <path id="prefix__path684" d="M441.548 223.933C-37.71-459.025-409.311 178.854-948.22-266.922" transform="translate(948.22 266.922)" style="stroke-width:1.025px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g704" transform="translate(5.286 217.598)">
+                    <g id="prefix__g702">
+                        <g id="prefix__g700">
+                            <g id="prefix__g698" transform="translate(.4 .714)">
+                                <path id="prefix__path696" d="M432.885 235.941c-456.753-645.284-832.01-47.153-1362.5-517.176" transform="translate(929.618 281.235)" style="stroke-width:.949px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g716" transform="translate(6.356 190.411)">
+                    <g id="prefix__g714">
+                        <g id="prefix__g712">
+                            <g id="prefix__g710" transform="translate(.384 .638)">
+                                <path id="prefix__path708" d="M424.222 247.948c-434.247-607.61-813.162-49.227-1335.236-543.5" transform="translate(911.014 295.547)" style="stroke-width:.872px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g728" transform="translate(7.427 163.217)">
+                    <g id="prefix__g726">
+                        <g id="prefix__g724">
+                            <g id="prefix__g722" transform="translate(.365 .568)">
+                                <path id="prefix__path720" d="M415.56 259.956C3.82-309.978-378.754 208.654-892.411-309.861" transform="translate(892.411 309.861)" style="stroke-width:.795px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g740" transform="translate(8.502 136.023)">
+                    <g id="prefix__g738">
+                        <g id="prefix__g736">
+                            <g id="prefix__g734" transform="translate(.342 .5)">
+                                <path id="prefix__path732" d="M406.9 271.963C17.661-260.3-368.568 218.587-873.807-324.173" transform="translate(873.807 324.173)" style="stroke-width:.717px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g752" transform="translate(9.581 108.821)">
+                    <g id="prefix__g750">
+                        <g id="prefix__g748">
+                            <g id="prefix__g746" transform="translate(.317 .437)">
+                                <path id="prefix__path744" d="M398.233 283.972C31.5-210.615-358.385 228.522-855.2-338.487" transform="translate(855.203 338.487)" style="stroke-width:.641px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g764" transform="translate(10.662 81.62)">
+                    <g id="prefix__g762">
+                        <g id="prefix__g760">
+                            <g id="prefix__g758" transform="translate(.286 .373)">
+                                <path id="prefix__path756" d="M389.571 295.979C45.347-160.932-348.2 238.454-836.6-352.8" transform="translate(836.601 352.799)" style="stroke-width:.564px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g776" transform="translate(11.747 54.415)">
+                    <g id="prefix__g774">
+                        <g id="prefix__g772">
+                            <g id="prefix__g770" transform="translate(.255 .315)">
+                                <path id="prefix__path768" d="M380.909 307.987C59.189-111.25-338.015 248.383-818-367.112" transform="translate(817.998 367.112)" style="stroke-width:.487px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g788" transform="translate(12.833 27.209)">
+                    <g id="prefix__g786">
+                        <g id="prefix__g784">
+                            <g id="prefix__g782" transform="translate(.22 .257)">
+                                <path id="prefix__path780" d="M372.246 319.995C73.033-61.568-327.829 258.319-799.4-381.426" transform="translate(799.395 381.426)" style="stroke-width:.411px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="prefix__g800" transform="translate(13.922)">
+                    <g id="prefix__g798">
+                        <g id="prefix__g796">
+                            <g id="prefix__g794" transform="translate(.185 .201)">
+                                <path id="prefix__path792" d="M363.583 332C86.875-11.886-317.644 268.253-780.791-395.739" transform="translate(780.791 395.739)" style="stroke-width:.333px;fill:none;stroke:#fff;stroke-miterlimit:10"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
