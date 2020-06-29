@@ -77,7 +77,7 @@ const LogIn = () => {
         </div>
           <div className='log-in-wrap'>
             <h1>{_config.translations.log_in.main_title}</h1>
-            <a href={window.location.origin + _config.urls.login} className='log-in-question'><span>{_config.translations.log_in.subtitle}</span><span className='sign_label'>{_config.translations.log_in.sign_up_link_label}</span></a>
+            <a href={window.location.origin + _config.urls.sign_up} className='log-in-question'><span>{_config.translations.log_in.subtitle}</span><span className='sign_label'>{_config.translations.log_in.sign_up_link_label}</span></a>
             <form action={_config.urls.check_login} method='POST'>
               <div className='text-content-wrap'>
                 <input className='time-zone'
