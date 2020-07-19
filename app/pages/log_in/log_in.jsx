@@ -60,9 +60,6 @@ const LogIn = () => {
     }
   }
 
-  const send = false
-  const sending = false
-
   return (
     <div className='log_in'>
       <div className='main-content'>
@@ -101,7 +98,7 @@ const LogIn = () => {
                   <img className='phone_img' src={`${_config.urls.static}ic_pass.svg`} />
                   <input
                     type={showPass ? 'text' : 'password'}
-                    name='pass'
+                    name='current-password'
                     value={passValue}
                     className='group__input'
                     onChange={handleCangePass}
