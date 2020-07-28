@@ -7,7 +7,7 @@ _config.urls = {
   sign_up: '/signup',
   login: '/login',
   static: './media/',
-
+  contact_us: '/contact_us',
   // api 
   recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}'
 }
@@ -37,6 +37,8 @@ _config.translations = {
     password_placeholder: 'Password',
     forgot_password_label: 'Forgot your password?',
     log_in_btn_label: 'log in',
+    contact_us_link_label: 'Need a help?',
+    incorrect_credentials: 'Your email or password is\nincorrect, check it and try again'
 
     // login_google: 'Log in with google',
     // login_or: 'or',
