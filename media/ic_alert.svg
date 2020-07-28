@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+    <defs>
+        <linearGradient id="prefix__linear-gradient" x1="1" x2="0" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#ff55a2"/>
+            <stop offset="1" stop-color="#981f57"/>
+        </linearGradient>
+    </defs>
+    <g id="prefix__ic_alert" transform="translate(-2 -2)">
+        <path id="prefix__ic_alert-2" fill="url(#prefix__linear-gradient)" d="M23 2a21 21 0 1 0 21 21A21 21 0 0 0 23 2zm0 31.5a2.1 2.1 0 1 1 2.1-2.1 2.1 2.1 0 0 1-2.1 2.1zm2.1-8.4a2.1 2.1 0 1 1-4.2 0V14.6a2.1 2.1 0 0 1 4.2 0z" data-name="ic_alert"/>
+    </g>
+</svg>
