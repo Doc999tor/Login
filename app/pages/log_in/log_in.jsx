@@ -8,22 +8,21 @@ const LogIn = () => {
   const [validEmail, setIsValidEmailValue] = useState(true)
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   const handleCheckEmail = () => {
-    if (emailValue === '') {
+    if (emailValue?.trim() === '') {
+      setIsValidEmailValue(false)
+      return false
+    }
+    if (!re.test(emailValue?.trim())) {
       setIsValidEmailValue(false)
       return false
     } else {
-      if (!re.test(emailValue)) {
-        setIsValidEmailValue(false)
-        return false
-      } else {
-        setIsValidEmailValue(true)
-        return true
-      }
+      setIsValidEmailValue(true)
+      return true
     }
   }
 
   const handleChangeEmail = e => {
-    const value = e.target.value
+    const value = e.target.value.trim()
     setEmailValue(value)
     setIsValidEmailValue(true)
     sessionStorage.setItem('log_in_email', value)
@@ -35,7 +34,7 @@ const LogIn = () => {
   const [passValue, setPassValue] = useState(sessionStorage.getItem('log_in_pass') || '')
   const [validPass, setValidPassValue] = useState(true)
   const handleSetPassValue = () => {
-    if (passValue && passValue.length > 3) {
+    if (passValue?.trim().length > 3) {
       setValidPassValue(true)
       return true
     }
@@ -43,13 +42,13 @@ const LogIn = () => {
     return false
   }
   const handleCangePass = e => {
-    const value = e.target.value
+    const value = e.target.value.trim()
     setPassValue(value)
     setValidPassValue(true)
     sessionStorage.setItem('log_in_pass', value)
   }
   const handleCheckPassEmail = () => {
-    if (passValue && passValue.length > 3 && emailValue && re.test(emailValue)) {
+    if (passValue.trim().length > 3 && emailValue && re.test(emailValue.trim())) {
       return true
     }
     return false
