@@ -6,7 +6,7 @@ const LogIn = () => {
   const [incorrectCredentials, setIncorrectCredentials] = useState(false)
   const [emailValue, setEmailValue] = useState(sessionStorage.getItem('log_in_email') || '')
   const [validEmail, setIsValidEmailValue] = useState(true)
-  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
   const handleCheckEmail = () => {
     if (emailValue?.trim() === '') {
       setIsValidEmailValue(false)
