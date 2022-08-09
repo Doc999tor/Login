@@ -126,6 +126,7 @@ const LogIn = () => {
                   />
                   {passValue && <img className='group__eye' onClick={handleSetShowPassValue} src={_config.urls.static + (showPass ? 'eye-off.svg' : 'eye.svg')} />}
                 </div>
+                <div className='text-context-wrap__forgot' onClick={() => window.location = _config.routing.forgot_path}>{_config.translations.forgot.forgot_pass}</div>
               </div>
               <button className='login-form__button login-button' type={handleCheckPassEmail() ? 'submit' : 'button'} onClick={!handleCheckPassEmail() && handleSubmit}>
                 {_config.translations.log_in.log_in_btn_label}
