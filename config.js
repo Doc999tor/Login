@@ -1,6 +1,6 @@
-var _config = {}
+const _config = {}
 
-_config.data = {isRTL: false}
+_config.data = { isRTL: false }
 
 _config.urls = {
   check_login: '/check-login',
@@ -10,7 +10,7 @@ _config.urls = {
   contact_us: '/contact_us',
   home: '/en/home',
   // api
-  recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}'
+  recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}',
 }
 _config.keys = {
   recaptcha_v3: '6LcXaJsUAAAAABggIFrA5GbeAX0T7RgnK6tohhqn',
@@ -73,5 +73,11 @@ _config.translations = {
     dont_want_reset_pwd: 'Don’t want to reset password?',
     atzma_phone: '+972549793976',
     goto: 'Go to'
+  },
+  popup: {
+    success_title: 'Message has been sent, please check your inbox',
+    success_subtitle: 'If you didn\'t get this email, please check for it in spam',
+    error_title: 'We didn\'t find this email in our records, please check it and try again',
+    pending_title: 'Sending'
   }
 }

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import IncorrectCredentials from './components/incorrect_credentials/index.jsx';
+import { modalTypes } from '../../utils/constants';
+import IncorrectCredentials from './components/incorrect_credentials';
+import ResetPasswordStatus from './components/reset_pwd_status/reset_pwd_status';
 import './reset_password.less';
 
 const ResetPassword = () => {
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
+  const [status, setStatus] = useState(modalTypes.default);
   const [emailValue, setEmailValue] = useState(
     sessionStorage.getItem('log_in_email') || ''
   );
@@ -29,7 +32,7 @@ const ResetPassword = () => {
     sessionStorage.setItem('log_in_email', value);
   };
 
-  const handleCheckPassEmail = () => !!(emailValue && re.test(emailValue.trim()))
+  const handleCheckPassEmail = () => !!(emailValue && re.test(emailValue.trim()));
 
   const handleSubmit = () => {
     if ((emailValue && !re.test(emailValue)) || !emailValue) {
@@ -69,86 +72,113 @@ const ResetPassword = () => {
                 <img
                   className='reset-password-logo'
                   src={`${_config.urls.static}logo.svg`}
+                  alt='logo'
                 />
                 <img
                   className='reset-password-logo-name'
                   src={`${_config.urls.static}atzma.im.svg`}
+                  alt='logo-name'
                 />
               </a>
             )}
           </div>
         </div>
-        <div className='reset-password-wrap'>
-          <h1>{_config.translations.log_in.reset_password}</h1>
-          <p className='reset-password-subtitle'>
-            <span>{_config.translations.log_in.reset_password_subtitle}</span>
-          </p>
-          <form action={_config.urls.check_login} method='POST'>
-            <div className='text-content-wrap'>
-              <input
-                className='time-zone'
-                type='text'
-                name='time_zone'
-                defaultValue={
-                  Intl
-                  && Intl.DateTimeFormat
-                  && Intl.DateTimeFormat().resolvedOptions().timeZone
-                }
-              />
-              <div className={`group${validEmail ? '' : ' err'}`}>
-                <img
-                  className='phone_img'
-                  src={`${_config.urls.static}${
-                    validEmail ? 'ic_email.svg' : 'ic_email-error.svg'
-                  }`}
-                />
+        {status !== modalTypes.default ? (
+          <ResetPasswordStatus
+            type={modalTypes[status]}
+            renderOwnLabel={() => {
+              const title = `${modalTypes[status]}_title`;
+              const subtitle = `${modalTypes[status]}_subtitle`;
+              return (
+                <div className='modal-text-container'>
+                  <div className='modal-text-container__title'>
+                    {_config.translations.popup[title]}
+                  </div>
+                  <div className='modal-text-container__subtitle'>
+                    {_config.translations.popup[subtitle]}
+                  </div>
+                </div>
+              );
+            }}
+          />
+        ) : (
+          <div className='reset-password-wrap'>
+            <h1>{_config.translations.log_in.reset_password}</h1>
+            <p className='reset-password-subtitle'>
+              <span>{_config.translations.log_in.reset_password_subtitle}</span>
+            </p>
+            <form action={_config.urls.check_login} method='POST'>
+              <div className='text-content-wrap'>
                 <input
-                  type='email'
-                  name='email'
-                  value={emailValue}
-                  onBlur={handleCheckEmail}
-                  className='group__input'
-                  onChange={handleChangeEmail}
-                  autoComplete='username'
-                  placeholder={_config.translations.log_in.email_placeholder}
+                  className='time-zone'
+                  type='text'
+                  name='time_zone'
+                  defaultValue={
+                    Intl
+                    && Intl.DateTimeFormat
+                    && Intl.DateTimeFormat().resolvedOptions().timeZone
+                  }
                 />
+                <div className={`group${validEmail ? '' : ' err'}`}>
+                  <img
+                    className='phone_img'
+                    src={`${_config.urls.static}${
+                      validEmail ? 'ic_email.svg' : 'ic_email-error.svg'
+                    }`}
+                    alt='email'
+                  />
+                  <input
+                    type='email'
+                    name='email'
+                    value={emailValue}
+                    onBlur={handleCheckEmail}
+                    className='group__input'
+                    onChange={handleChangeEmail}
+                    autoComplete='username'
+                    placeholder={_config.translations.log_in.email_placeholder}
+                  />
+                </div>
               </div>
-            </div>
-            <button
-              className='login-form__button login-button'
-              type={handleCheckPassEmail() ? 'submit' : 'button'}
-              onClick={!handleCheckPassEmail() && handleSubmit}
-            >
-              {_config.translations.forgot.send}
-            </button>
-          </form>
-        </div>
-        <div className='tooltips-block'>
-          <div>{_config.translations.forgot.dont_want_reset_pwd}</div>
-          <div>
-            <span>{_config.translations.forgot.goto}</span>{' '}
-            <a
-              className='reset-password-question'
-              href={window.location.origin + _config.urls.login}
-            >
-              <span className='sign_label'>
-                {_config.translations.log_in.log_in}
-              </span>
-            </a>
+              <button
+                className='login-form__button login-button'
+                type={handleCheckPassEmail() ? 'submit' : 'button'}
+                onClick={!handleCheckPassEmail() && handleSubmit}
+              >
+                {_config.translations.forgot.send}
+              </button>
+            </form>
           </div>
-          <p />
+        )}
+        {status === modalTypes.default && (
+          <div className='tooltips-block'>
+            <div>{_config.translations.forgot.dont_want_reset_pwd}</div>
+            <div>
+              <span>{_config.translations.forgot.goto}</span>{' '}
+              <a
+                className='reset-password-question'
+                href={window.location.origin + _config.urls.login}
+              >
+                <span className='sign_label'>
+                  {_config.translations.log_in.log_in}
+                </span>
+              </a>
+            </div>
+            <p />
+          </div>
+        )}
+      </div>
+      {status !== modalTypes.pending && (
+        <div className='sup-wrap'>
+          <a href={_config.urls.contact_us} className='contact_us_link'>
+            <span className='link_text'>
+              {_config.translations.log_in.contact_us_link_label}
+            </span>
+            <span className='reset-password-help'>
+              {_config.translations.forgot.support}
+            </span>
+          </a>
         </div>
-      </div>
-      <div className='sup-wrap'>
-        <a href={_config.urls.contact_us} className='contact_us_link'>
-          <span className='link_text'>
-            {_config.translations.log_in.contact_us_link_label}
-          </span>
-          <span className='reset-password-help'>
-            {_config.translations.forgot.support}
-          </span>
-        </a>
-      </div>
+      )}
     </div>
   );
 };
