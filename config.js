@@ -11,6 +11,7 @@ _config.urls = {
   home: '/en/home',
   reset_password: '/reset_password',
   // api
+  base: 'https://api.bewebmaster.co.il',
   recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}',
 }
 _config.keys = {

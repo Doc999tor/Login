@@ -35,11 +35,11 @@ export async function get(url, params, argOptions = {}) {
 }
 
 export async function post(url, params, argOptions = {}) {
-    var apiUrl = url
-    myHeaders.set('Content-Type', 'application/x-www-form-urlencoded')
+    var apiUrl = _config.urls.base + url
+    myHeaders.set('Content-Type', 'application/json')
 
     baseOptions.method = 'POST'
-    baseOptions.body = serialize(params)
+    baseOptions.body = JSON.stringify(params)
     baseOptions.headers = myHeaders
 
     var options = {
@@ -97,7 +97,7 @@ var _promise = (apiUrl, options) => {
             var options = options;
             var reqConfig = new Request(apiUrl, options);
             fetch(reqConfig).then(response => {
-                if(reqConfig.method === "HEAD" && response.status === 200){
+                if(reqConfig.method === "HEAD" && response.status === 200 || reqConfig.method === 'POST' && response.status === 201){
                     resolve(response)
                   }
                 if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 200 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {

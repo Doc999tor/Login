@@ -28,14 +28,17 @@ const ResetPassword = () => {
 
   const handleFormSubmit = (e) => {
     setStatus(modalTypes.pending)
+    e.preventDefault();
     const email = sessionStorage.getItem('log_in_email');
     post(_config.urls.reset_password, { email })
-      .then(() => setStatus(modalTypes.success))
+      .then(() => {
+        setTimeout(() => setStatus(modalTypes.success), 3000)
+      })
       .catch(() => {
         setStatus(modalTypes.error);
         setTimeout(() => {
           window.location = _config.routing.forgot_path
-        }, 2000)
+        }, 3500)
       })
   }
 
