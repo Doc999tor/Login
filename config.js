@@ -9,6 +9,7 @@ _config.urls = {
   static: './media/',
   contact_us: '/contact_us',
   home: '/en/home',
+  reset_password: '/reset_password',
   // api
   recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}',
 }

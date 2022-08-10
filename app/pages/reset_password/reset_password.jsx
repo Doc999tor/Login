@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { modalTypes } from '../../utils/constants';
+import {post} from '../../services/apiServices';
 import IncorrectCredentials from './components/incorrect_credentials';
 import ResetPasswordStatus from './components/reset_pwd_status/reset_pwd_status';
 import './reset_password.less';
@@ -24,6 +25,19 @@ const ResetPassword = () => {
     setIsValidEmailValue(true);
     return true;
   };
+
+  const handleFormSubmit = (e) => {
+    setStatus(modalTypes.pending)
+    const email = sessionStorage.getItem('log_in_email');
+    post(_config.urls.reset_password, { email })
+      .then(() => setStatus(modalTypes.success))
+      .catch(() => {
+        setStatus(modalTypes.error);
+        setTimeout(() => {
+          window.location = _config.routing.forgot_path
+        }, 2000)
+      })
+  }
 
   const handleChangeEmail = (e) => {
     const value = e.target.value.trim();
@@ -107,7 +121,7 @@ const ResetPassword = () => {
             <p className='reset-password-subtitle'>
               <span>{_config.translations.log_in.reset_password_subtitle}</span>
             </p>
-            <form action={_config.urls.check_login} method='POST'>
+            <form onSubmit={handleFormSubmit}>
               <div className='text-content-wrap'>
                 <input
                   className='time-zone'
