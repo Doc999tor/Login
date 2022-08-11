@@ -98,7 +98,7 @@ const ChangePassword = () => {
   }, []);
 
   return (
-    <div className='log_in'>
+    <div className='change_password'>
       <div className='main-content'>
         <div
           style={{
@@ -118,12 +118,12 @@ const ChangePassword = () => {
             ) : (
               <a href={_config.urls.home} className='home-link'>
                 <img
-                  className='log-in-logo'
+                  className='change-password-logo'
                   src={`${_config.urls.static}logo.svg`}
                   alt=''
                 />
                 <img
-                  className='log-in-logo-name'
+                  className='change-password-logo-name'
                   src={`${_config.urls.static}atzma.im.svg`}
                   alt=''
                 />
@@ -150,7 +150,7 @@ const ChangePassword = () => {
             }}
           />
         ) : (
-          <div className='log-in-wrap'>
+          <div className='change-password-wrap'>
             <h1>{_config.translations.change_password.title}</h1>
             <p className='reset-password-subtitle'>
               <span>{_config.translations.change_password.subtitle}</span>
