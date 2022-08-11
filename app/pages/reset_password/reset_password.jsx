@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { modalTypes } from '../../utils/constants';
 import { post } from '../../services/apiServices';
-import IncorrectCredentials from '../../components';
-import ResetPasswordStatus from './components/reset_pwd_status/reset_pwd_status';
+import { IncorrectCredentials, StatusBlock } from '../../components';
 import './reset_password.less';
 
 const ResetPassword = () => {
@@ -35,10 +34,10 @@ const ResetPassword = () => {
         setTimeout(() => setStatus(modalTypes.success), 3000);
       })
       .catch(() => {
-        setStatus(modalTypes.error);
+        setTimeout(() => setStatus(modalTypes.error), 3000);
         setTimeout(() => {
           window.location = _config.routing.forgot_path;
-        }, 3500);
+        }, 5000);
       });
   };
 
@@ -101,7 +100,7 @@ const ResetPassword = () => {
           </div>
         </div>
         {status !== modalTypes.default ? (
-          <ResetPasswordStatus
+          <StatusBlock
             type={modalTypes[status]}
             renderOwnLabel={() => {
               const title = `${modalTypes[status]}_title`;

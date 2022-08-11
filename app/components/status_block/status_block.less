@@ -2,7 +2,7 @@
 @width6: 80%; // Appears 2 times
 
 
-.rst_pwd_status_body {
+.status_block_body {
   align-items: center;
   background-color: var(--white-color);
   border-radius: 15px;
@@ -12,7 +12,7 @@
   justify-content: center;
   min-height: 19.25rem;
   overflow: hidden;
-  .rs_pwd_plane {
+  .status_block_plane {
     animation: plane_in 1.5s ease-in 0.1s forwards infinite;
     opacity: 0;
     padding-bottom: 2rem;
@@ -21,7 +21,7 @@
   .mark_modal {
     width: @width4;
   }
-  .rs_pwd_sending {
+  .status_block_sending {
     align-items: center;
     color: var(--dark-color);
     display: flex;
@@ -33,7 +33,7 @@
       font-weight: 500;
     }
   }
-  .rs_pwd_success {
+  .status_block_success {
     align-items: center;
     animation: success 0.6s;
     color: var(--main-color);
@@ -51,7 +51,7 @@
       text-align: center;
       width: @width6;
     }
-    .rs_pwd_outer_circle {
+    .status_block_outer_circle {
       margin-bottom: 1.4rem;
       padding: 0 25%;
       img {
@@ -59,7 +59,7 @@
       }
     }
   }
-  .rs_pwd_conflict {
+  .status_block_conflict {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -137,7 +137,7 @@
 .hide-background {
 animation: hide-background 0.3s forwards;
 }
-@keyframes show_rst_pwd_status {
+@keyframes show_status_block {
   0% {
     transform: scale(0);
   }

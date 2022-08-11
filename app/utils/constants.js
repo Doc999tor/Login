@@ -4,3 +4,9 @@ export const modalTypes = {
   error: 'error',
   pending: 'pending',
 }
+
+export const showPassMode = {
+  default: 'none',
+  password: 'password',
+  confirmPassword: 'confirm-password'
+}

@@ -82,5 +82,11 @@ _config.translations = {
     success_subtitle: 'If you didn\'t get this email, please check for it in spam',
     error_title: 'We didn\'t find this email in our records, please check it and try again',
     pending_title: 'Sending'
+  },
+  change_password: {
+    title: 'New Password',
+    subtitle: 'Select a new password and enter it twice',
+    new_password_placeholder: 'New password',
+    confirm_password_placeholder: 'Confirm Password'
   }
 }
