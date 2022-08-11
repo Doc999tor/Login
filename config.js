@@ -82,7 +82,12 @@ _config.translations = {
     success_title: 'Message has been sent, please check your inbox',
     success_subtitle: 'If you didn\'t get this email, please check for it in spam',
     error_title: 'We didn\'t find this email in our records, please check it and try again',
-    pending_title: 'Sending'
+    something_went_wrong: 'Something went wrong, contact Lista support',
+    pending_title: 'Sending',
+    password_compare_error: `
+      This passwords don’t match.
+      Please check it and try again
+    `
   },
   change_password: {
     title: 'New Password',

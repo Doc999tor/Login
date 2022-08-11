@@ -5,8 +5,8 @@ export const modalTypes = {
   pending: 'pending',
 }
 
-export const showPassMode = {
-  default: 'none',
-  password: 'password',
-  confirmPassword: 'confirm-password'
+export const toastMode = {
+  warning: 'warning',
+  success: 'success',
+  error: 'error'
 }

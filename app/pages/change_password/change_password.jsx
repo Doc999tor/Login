@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { post } from '../../services/apiServices';
 import { IncorrectCredentials, StatusBlock } from '../../components';
-import { modalTypes } from '../../utils/constants';
+import { modalTypes, toastMode } from '../../utils/constants';
 import './change_password.less';
+import { useToast } from '../../components/toast_provider';
 
 const ChangePassword = () => {
+  const { addToast } = useToast()
   const [status, setStatus] = useState(modalTypes.default);
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
   const [showPass, setShowPassValue] = useState({
@@ -59,32 +61,38 @@ const ChangePassword = () => {
     ) {
       setConfirmValidPass(false);
     }
-    if (newPassValue !== confirmPassValue) {
+    if (confirmValidPass !== newValidPass) {
       setConfirmPassValue(false);
     }
   };
 
   const handleFormSubmit = (e) => {
-    setStatus(modalTypes.pending)
     e.preventDefault();
-    const newPassword = sessionStorage.getItem('new_pass');
-    const searchParams = new URLSearchParams(window.location.search);
-    post(_config.urls.set_password, {
-      'current-password': newPassword,
-      rid: searchParams.get('rid'),
-    })
-      .then(() => {
-        setTimeout(() => setStatus(modalTypes.success), 3000);
-        setTimeout(() => {
-          window.location = _config.routing.sign_in_path;
-        }, 5000);
+    if (
+      (newPassValue === confirmPassValue)
+        && ((newPassValue && newPassValue.length > 3) || newPassValue)
+        && ((confirmPassValue && confirmPassValue.length > 3) || confirmPassValue)
+    ) {
+      setStatus(modalTypes.pending)
+      const newPassword = sessionStorage.getItem('new_pass');
+      const searchParams = new URLSearchParams(window.location.search);
+      post(_config.urls.set_password, {
+        'current-password': newPassword,
+        rid: searchParams.get('rid'),
       })
-      .catch(() => {
-        setTimeout(() => setStatus(modalTypes.error), 3000);
-        setTimeout(() => {
-          window.location = _config.routing.forgot_path;
-        }, 5000);
-      });
+        .then(() => {
+          setTimeout(() => setStatus(modalTypes.success), 3000);
+          setTimeout(() => {
+            window.location = _config.routing.sign_in_path;
+          }, 5000);
+        })
+        .catch(() => {
+          setTimeout(() => setStatus(modalTypes.default), 3000);
+          addToast(_config.translations.popup.something_went_wrong, toastMode.error)
+        });
+    } else {
+      addToast(_config.translations.popup.password_compare_error, toastMode.error)
+    }
   };
 
   useEffect(() => {

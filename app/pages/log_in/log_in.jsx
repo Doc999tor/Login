@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import IncorrectCredentials from '../../components'
+import { IncorrectCredentials } from '../../components'
 import './log_in.less'
 
 const LogIn = () => {

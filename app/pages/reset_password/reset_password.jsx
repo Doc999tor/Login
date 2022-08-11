@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { modalTypes } from '../../utils/constants';
+import { modalTypes, toastMode } from '../../utils/constants';
 import { post } from '../../services/apiServices';
 import { IncorrectCredentials, StatusBlock } from '../../components';
 import './reset_password.less';
+import { useToast } from '../../components/toast_provider';
 
 const ResetPassword = () => {
+  const { addToast } = useToast()
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
   const [status, setStatus] = useState(modalTypes.default);
   const [emailValue, setEmailValue] = useState(
@@ -34,10 +36,8 @@ const ResetPassword = () => {
         setTimeout(() => setStatus(modalTypes.success), 3000);
       })
       .catch(() => {
-        setTimeout(() => setStatus(modalTypes.error), 3000);
-        setTimeout(() => {
-          window.location = _config.routing.forgot_path;
-        }, 5000);
+        window.location = _config.routing.forgot_path;
+        addToast(_config.translations.popup.error_title, toastMode.error)
       });
   };
 
