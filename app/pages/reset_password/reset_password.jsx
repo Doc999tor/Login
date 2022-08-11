@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { modalTypes } from '../../utils/constants';
-import {post} from '../../services/apiServices';
-import IncorrectCredentials from './components/incorrect_credentials';
+import { post } from '../../services/apiServices';
+import IncorrectCredentials from '../../components';
 import ResetPasswordStatus from './components/reset_pwd_status/reset_pwd_status';
 import './reset_password.less';
 
@@ -27,20 +27,20 @@ const ResetPassword = () => {
   };
 
   const handleFormSubmit = (e) => {
-    setStatus(modalTypes.pending)
+    setStatus(modalTypes.pending);
     e.preventDefault();
     const email = sessionStorage.getItem('log_in_email');
     post(_config.urls.reset_password, { email })
       .then(() => {
-        setTimeout(() => setStatus(modalTypes.success), 3000)
+        setTimeout(() => setStatus(modalTypes.success), 3000);
       })
       .catch(() => {
         setStatus(modalTypes.error);
         setTimeout(() => {
-          window.location = _config.routing.forgot_path
-        }, 3500)
-      })
-  }
+          window.location = _config.routing.forgot_path;
+        }, 3500);
+      });
+  };
 
   const handleChangeEmail = (e) => {
     const value = e.target.value.trim();

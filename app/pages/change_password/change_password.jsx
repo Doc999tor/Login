@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import IncorrectCredentials from '../../components'
-import './log_in.less'
+import './change_password.less'
 
 const LogIn = () => {
   const [incorrectCredentials, setIncorrectCredentials] = useState(false)

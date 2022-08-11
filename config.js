@@ -29,6 +29,7 @@ _config.routing = {
   },
   sign_in_path: '/',
   forgot_path: '/reset-password',
+  change_password_path: '/change-password'
 }
 
 _config.translations = {
