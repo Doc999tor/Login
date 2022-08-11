@@ -100,6 +100,9 @@ var _promise = (apiUrl, options) => {
                 if(reqConfig.method === "HEAD" && response.status === 200 || reqConfig.method === 'POST' && response.status === 201){
                     resolve(response)
                   }
+                if(reqConfig.method === 'POST' && response.status === 404){
+                    reject(response)
+                  }
                 if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 200 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {
                     resolve(response.json())
                 }

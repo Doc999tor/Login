@@ -36,8 +36,10 @@ const ResetPassword = () => {
         setTimeout(() => setStatus(modalTypes.success), 3000);
       })
       .catch(() => {
-        window.location = _config.routing.forgot_path;
-        addToast(_config.translations.popup.error_title, toastMode.error)
+        setTimeout(() => {
+          setStatus(modalTypes.default)
+          addToast(_config.translations.popup.error_title, toastMode.error)
+        }, 3000);
       });
   };
 
