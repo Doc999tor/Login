@@ -69,7 +69,7 @@ const ChangePassword = () => {
     e.preventDefault();
     const newPassword = sessionStorage.getItem('new_pass');
     const searchParams = new URLSearchParams(window.location.search);
-    post(_config.routing.change_password_path, {
+    post(_config.urls.set_password, {
       'current-password': newPassword,
       rid: searchParams.get('rid'),
     })
@@ -245,7 +245,7 @@ const ChangePassword = () => {
                 type='submit'
                 onClick={handleSubmit}
               >
-                {_config.translations.log_in.log_in_btn_label}
+                {_config.translations.change_password.continue}
               </button>
             </form>
           </div>

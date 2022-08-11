@@ -10,6 +10,7 @@ _config.urls = {
   contact_us: '/contact_us',
   home: '/en/home',
   reset_password: '/reset_password',
+  set_password: '/set_password',
   // api
   base: 'https://api.bewebmaster.co.il',
   recaptcha_post: 'http://atzma.im/recaptcha.php?token={token}',
@@ -87,6 +88,7 @@ _config.translations = {
     title: 'New Password',
     subtitle: 'Select a new password and enter it twice',
     new_password_placeholder: 'New password',
-    confirm_password_placeholder: 'Confirm Password'
+    confirm_password_placeholder: 'Confirm Password',
+    continue: 'continue'
   }
 }
