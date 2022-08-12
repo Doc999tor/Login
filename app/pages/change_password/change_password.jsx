@@ -87,8 +87,10 @@ const ChangePassword = () => {
           }, 5000);
         })
         .catch(() => {
-          setTimeout(() => setStatus(modalTypes.default), 3000);
-          addToast(_config.translations.popup.something_went_wrong, toastMode.error)
+          setTimeout(() => {
+            setStatus(modalTypes.default)
+            addToast(_config.translations.popup.something_went_wrong, toastMode.error)
+          }, 3000);
         });
     } else {
       addToast(_config.translations.popup.password_compare_error, toastMode.error)

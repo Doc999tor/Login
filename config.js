@@ -29,8 +29,9 @@ _config.routing = {
     }
   },
   sign_in_path: '/',
-  forgot_path: '/reset-password',
-  change_password_path: '/change-password'
+  forgot_path: '/login/reset-password',
+  change_password_path: '/login/change-password',
+  expired_path: '/login/change-password-expired'
 }
 
 _config.translations = {
@@ -82,12 +83,13 @@ _config.translations = {
     success_title: 'Message has been sent, please check your inbox',
     success_subtitle: 'If you didn\'t get this email, please check for it in spam',
     error_title: 'We didn\'t find this email in our records, please check it and try again',
-    something_went_wrong: 'Something went wrong, contact Lista support',
+    something_went_wrong: 'Something went wrong',
     pending_title: 'Sending',
     password_compare_error: `
       This passwords don’t match.
       Please check it and try again
-    `
+    `,
+    contact_support: 'Contact Lista support'
   },
   change_password: {
     title: 'New Password',
