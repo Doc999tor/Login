@@ -79,7 +79,7 @@ const ChangePassword = () => {
           setTimeout(() => setStatus(modalTypes.success), 3000);
           setTimeout(() => {
             window.location = _config.routing.sign_in_path;
-          }, 5000);
+          }, 6000);
         })
         .catch(() => {
           setTimeout(() => {
@@ -140,15 +140,11 @@ const ChangePassword = () => {
           <StatusBlock
             type={modalTypes[status]}
             renderOwnLabel={() => {
-              const title = `${modalTypes[status]}_title`;
-              const subtitle = `${modalTypes[status]}_subtitle`;
+              const title = status === modalTypes.pending ? `${modalTypes[status]}_title` : 'password_change_success_title';
               return (
                 <div className='modal-text-container'>
                   <div className='modal-text-container__title'>
                     {_config.translations.popup[title]}
-                  </div>
-                  <div className='modal-text-container__subtitle'>
-                    {_config.translations.popup[subtitle]}
                   </div>
                 </div>
               );

@@ -90,7 +90,8 @@ _config.translations = {
       Please check it and try again
     `,
     contact_support: 'Contact Lista support',
-    password_error: 'The password should have at least 3 symbols'
+    password_error: 'The password should have at least 3 symbols',
+    password_change_success_title: 'The password was successfully changed!'
   },
   change_password: {
     title: 'New Password',
