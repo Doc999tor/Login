@@ -1,15 +1,15 @@
 .notify-wrapper {
-  position: relative;
-  max-width: 420px;
-  width: 100%;
-  padding: 16px 43px 16px 16px;
+  position: absolute;
+  width: 90%;
+  padding: 16px;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 3px 20px 0 rgba(41, 41, 204, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 1000;
+  
   .notify-text {
     font-size: 1.125rem;
     font-weight: 500;
@@ -22,17 +22,8 @@
 
 @media screen and (max-width: 425px) {
   .notify-wrapper {
-    max-width: 320px;
     .notify-text {
-      font-size: 0.92rem;
-    }
-  }
-}
-@media screen and (max-width: 325px) {
-  .notify-wrapper {
-    max-width: 290px;
-    .notify-text {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 }

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { modalTypes, toastMode } from '../../utils/constants';
 import { post } from '../../services/apiServices';
-import { IncorrectCredentials, StatusBlock, SupportLink } from '../../components';
+import { IncorrectCredentials, StatusBlock, SupportLink, Toast } from '../../components';
 import './reset_password.less';
-import { useToast } from '../../components/toast_provider';
 
 const ResetPassword = () => {
-  const { addToast } = useToast()
+  const [toast, setToast] = useState({
+    isOpen: false,
+    message: '',
+    type: 'warning',
+    time: 3000,
+  });
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
   const [status, setStatus] = useState(modalTypes.default);
   const [emailValue, setEmailValue] = useState(
@@ -27,6 +31,8 @@ const ResetPassword = () => {
     return true;
   };
 
+  const setIsOpen = () => setToast({ ...toast, isOpen: !toast.isOpen });
+
   const handleFormSubmit = (e) => {
     setStatus(modalTypes.pending);
     e.preventDefault();
@@ -38,7 +44,12 @@ const ResetPassword = () => {
       .catch(() => {
         setTimeout(() => {
           setStatus(modalTypes.default)
-          addToast(_config.translations.popup.error_title, toastMode.error)
+          setToast({
+            ...toast,
+            type: toastMode.error,
+            message: _config.translations.popup.error_title,
+            isOpen: true,
+          });
         }, 3000);
       });
   };
@@ -98,6 +109,14 @@ const ResetPassword = () => {
                   alt='logo-name'
                 />
               </a>
+            )}
+            {toast.isOpen && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                time={toast.time}
+                setIsOpen={setIsOpen}
+              />
             )}
           </div>
         </div>

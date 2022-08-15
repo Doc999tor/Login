@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { post } from '../../services/apiServices';
-import { IncorrectCredentials, StatusBlock, SupportLink } from '../../components';
+import {
+  IncorrectCredentials,
+  StatusBlock,
+  SupportLink,
+  Toast,
+} from '../../components';
 import { modalTypes, toastMode } from '../../utils/constants';
 import './change_password.less';
-import { useToast } from '../../components/toast_provider';
 
 const ChangePassword = () => {
-  const { addToast } = useToast()
+  const [toast, setToast] = useState({
+    isOpen: false,
+    message: '',
+    type: 'warning',
+    time: 3000,
+  });
   const [status, setStatus] = useState(modalTypes.default);
   const [incorrectCredentials, setIncorrectCredentials] = useState(false);
   const [showPass, setShowPassValue] = useState({
@@ -21,6 +30,8 @@ const ChangePassword = () => {
     sessionStorage.getItem('confirm_pass') || ''
   );
   const [confirmValidPass, setConfirmValidPass] = useState(true);
+
+  const setIsOpen = () => setToast({ ...toast, isOpen: !toast.isOpen });
 
   const handleSetNewPassValue = () => {
     if (newPassValue?.trim().length > 3) {
@@ -54,21 +65,22 @@ const ChangePassword = () => {
   const beforeSubmitCheck = () => {
     if ((newPassValue && newPassValue.length < 3) || !newPassValue) {
       setNewValidPass(false);
-      return _config.translations.popup.password_error
+      return _config.translations.popup.password_error;
     }
-    if (confirmValidPass !== newValidPass) {
-      setConfirmPassValue(false);
-      return _config.translations.popup.password_compare_error
+    if (newPassValue !== confirmPassValue) {
+      setConfirmValidPass(false);
+      setNewValidPass(false);
+      return _config.translations.popup.password_compare_error;
     }
 
-    return false
+    return false;
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const checkAnswer = beforeSubmitCheck()
+    const checkAnswer = beforeSubmitCheck();
     if (!checkAnswer) {
-      setStatus(modalTypes.pending)
+      setStatus(modalTypes.pending);
       const newPassword = sessionStorage.getItem('new_pass');
       const searchParams = new URLSearchParams(window.location.search);
       post(_config.urls.set_password, {
@@ -83,12 +95,22 @@ const ChangePassword = () => {
         })
         .catch(() => {
           setTimeout(() => {
-            setStatus(modalTypes.default)
-            addToast(_config.translations.popup.something_went_wrong, toastMode.error)
+            setStatus(modalTypes.default);
+            setToast({
+              ...toast,
+              type: toastMode.error,
+              message: _config.translations.popup.something_went_wrong,
+              isOpen: true,
+            });
           }, 3000);
         });
     } else {
-      addToast(checkAnswer, toastMode.error)
+      setToast({
+        ...toast,
+        type: toastMode.error,
+        message: checkAnswer,
+        isOpen: true,
+      });
     }
   };
 
@@ -134,13 +156,23 @@ const ChangePassword = () => {
                 />
               </a>
             )}
+            {toast.isOpen && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                time={toast.time}
+                setIsOpen={setIsOpen}
+              />
+            )}
           </div>
         </div>
         {status !== modalTypes.default ? (
           <StatusBlock
             type={modalTypes[status]}
             renderOwnLabel={() => {
-              const title = status === modalTypes.pending ? `${modalTypes[status]}_title` : 'password_change_success_title';
+              const title = status === modalTypes.pending
+                ? `${modalTypes[status]}_title`
+                : 'password_change_success_title';
               return (
                 <div className='modal-text-container'>
                   <div className='modal-text-container__title'>
@@ -241,10 +273,7 @@ const ChangePassword = () => {
                   )}
                 </div>
               </div>
-              <button
-                className='login-form__button login-button'
-                type='submit'
-              >
+              <button className='login-form__button login-button' type='submit'>
                 {_config.translations.change_password.continue}
               </button>
             </form>

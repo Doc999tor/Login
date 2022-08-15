@@ -1,12 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
-import { toastMode } from '../../../../utils/constants'
-import { useToast } from '../..';
+import { toastMode } from '../../utils/constants'
 
 import './toast.less'
 
-const Toast = ({ message, type, time = 3000, id }) => {
-  const { removeToast } = useToast()
-
+const Toast = ({ message, type, time = 3000, setIsOpen }) => {
   const icon = useMemo(() => {
     switch (type) {
       case toastMode.error:
@@ -21,13 +18,13 @@ const Toast = ({ message, type, time = 3000, id }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      removeToast(id)
+      setIsOpen()
     }, time)
 
     return () => {
       clearTimeout(timer)
     }
-  }, [id, removeToast, time])
+  }, [setIsOpen, time])
 
   return (
     <div className='notify-wrapper'>
