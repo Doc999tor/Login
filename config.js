@@ -89,7 +89,8 @@ _config.translations = {
       This passwords don’t match.
       Please check it and try again
     `,
-    contact_support: 'Contact Lista support'
+    contact_support: 'Contact Lista support',
+    password_error: 'The password should have at least 3 symbols'
   },
   change_password: {
     title: 'New Password',
@@ -97,5 +98,5 @@ _config.translations = {
     new_password_placeholder: 'New password',
     confirm_password_placeholder: 'Confirm Password',
     continue: 'continue'
-  }
+  },
 }

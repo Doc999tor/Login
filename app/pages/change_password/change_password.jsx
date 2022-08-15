@@ -51,28 +51,23 @@ const ChangePassword = () => {
     sessionStorage.setItem('confirm_pass', value);
   };
 
-  const handleSubmit = () => {
+  const beforeSubmitCheck = () => {
     if ((newPassValue && newPassValue.length < 3) || !newPassValue) {
       setNewValidPass(false);
-    }
-    if (
-      (confirmPassValue && confirmPassValue.length < 3)
-      || !confirmPassValue
-    ) {
-      setConfirmValidPass(false);
+      return _config.translations.popup.password_error
     }
     if (confirmValidPass !== newValidPass) {
       setConfirmPassValue(false);
+      return _config.translations.popup.password_compare_error
     }
+
+    return false
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (
-      (newPassValue === confirmPassValue)
-        && ((newPassValue && newPassValue.length > 3) || newPassValue)
-        && ((confirmPassValue && confirmPassValue.length > 3) || confirmPassValue)
-    ) {
+    const checkAnswer = beforeSubmitCheck()
+    if (!checkAnswer) {
       setStatus(modalTypes.pending)
       const newPassword = sessionStorage.getItem('new_pass');
       const searchParams = new URLSearchParams(window.location.search);
@@ -93,7 +88,7 @@ const ChangePassword = () => {
           }, 3000);
         });
     } else {
-      addToast(_config.translations.popup.password_compare_error, toastMode.error)
+      addToast(checkAnswer, toastMode.error)
     }
   };
 
@@ -253,7 +248,6 @@ const ChangePassword = () => {
               <button
                 className='login-form__button login-button'
                 type='submit'
-                onClick={handleSubmit}
               >
                 {_config.translations.change_password.continue}
               </button>

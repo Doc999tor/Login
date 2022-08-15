@@ -1,3 +1,5 @@
+import { contentType } from '../utils/constants'
+
 function serialize (obj) {
   var str = []
   for (var p in obj) {
@@ -34,9 +36,9 @@ export async function get(url, params, argOptions = {}) {
     return await _promise(apiUrl, options)
 }
 
-export async function post(url, params, argOptions = {}) {
+export async function post(url, params, argOptions = {}, content_type = contentType.json) {
     var apiUrl = _config.urls.base + url
-    myHeaders.set('Content-Type', 'application/json')
+    myHeaders.set('Content-Type', content_type)
 
     baseOptions.method = 'POST'
     baseOptions.body = JSON.stringify(params)
