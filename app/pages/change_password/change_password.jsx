@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { post } from '../../services/apiServices';
-import { IncorrectCredentials, StatusBlock } from '../../components';
+import { IncorrectCredentials, StatusBlock, SupportLink } from '../../components';
 import { modalTypes, toastMode } from '../../utils/constants';
 import './change_password.less';
 import { useToast } from '../../components/toast_provider';
@@ -251,16 +251,7 @@ const ChangePassword = () => {
           </div>
         )}
       </div>
-      <div className='sup-wrap'>
-        <a href={_config.urls.contact_us} className='contact_us_link'>
-          <span className='link_text'>
-            {_config.translations.log_in.contact_us_link_label}
-          </span>
-          <span className='help'>
-            <img src={`${_config.urls.static}ic_help.svg`} alt='help' />
-          </span>
-        </a>
-      </div>
+      <SupportLink />
     </div>
   );
 };

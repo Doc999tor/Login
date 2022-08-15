@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { modalTypes, toastMode } from '../../utils/constants';
 import { post } from '../../services/apiServices';
-import { IncorrectCredentials, StatusBlock } from '../../components';
+import { IncorrectCredentials, StatusBlock, SupportLink } from '../../components';
 import './reset_password.less';
 import { useToast } from '../../components/toast_provider';
 
@@ -186,16 +186,7 @@ const ResetPassword = () => {
         )}
       </div>
       {status !== modalTypes.pending && (
-        <div className='sup-wrap'>
-          <a href={_config.urls.contact_us} className='contact_us_link'>
-            <span className='link_text'>
-              {_config.translations.log_in.contact_us_link_label}
-            </span>
-            <span className='reset-password-help'>
-              {_config.translations.forgot.support}
-            </span>
-          </a>
-        </div>
+        <SupportLink />
       )}
     </div>
   );

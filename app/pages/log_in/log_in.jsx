@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { IncorrectCredentials } from '../../components'
+import { IncorrectCredentials, SupportLink } from '../../components'
 import './log_in.less'
 
 const LogIn = () => {
@@ -134,12 +134,7 @@ const LogIn = () => {
             </form>
           </div>
       </div>
-      <div className='sup-wrap'>
-        <a href={_config.urls.contact_us} className='contact_us_link'>
-          <span className='link_text'>{_config.translations.log_in.contact_us_link_label}</span>
-          <span className='help'><img src={`${_config.urls.static}ic_help.svg`} alt='help' /></span>
-        </a>
-      </div>
+      <SupportLink />
     </div>
   )
 }
