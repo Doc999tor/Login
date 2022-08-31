@@ -9,8 +9,10 @@ import { getParam, getPathname } from './utils/helpers';
 function App() {
   const page = getParam('page');
   const rid = getParam('rid');
+  console.log(page)
   if (page) {
-    window.location.pathname = getPathname(page, rid);
+    console.log('here', getPathname(page, rid))
+    window.location.href = window.location.origin + getPathname(page, rid);
   }
 
   return (
