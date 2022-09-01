@@ -193,7 +193,7 @@ const ResetPassword = () => {
               <span>{_config.translations.forgot.goto}</span>{' '}
               <a
                 className='reset-password-question'
-                href={window.location.origin + _config.urls.login}
+                href={window.location.origin + _config.routing.sign_in_path}
               >
                 <span className='sign_label'>
                   {_config.translations.log_in.log_in}

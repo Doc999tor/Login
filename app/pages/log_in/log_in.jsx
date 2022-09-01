@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import { IncorrectCredentials, SupportLink } from '../../components'
 import './log_in.less'
 
 const LogIn = () => {
+  const history = useHistory()
+  console.log(history)
   const [incorrectCredentials, setIncorrectCredentials] = useState(false)
   const [emailValue, setEmailValue] = useState(sessionStorage.getItem('log_in_email') || '')
   const [validEmail, setIsValidEmailValue] = useState(true)

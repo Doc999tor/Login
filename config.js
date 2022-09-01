@@ -29,6 +29,7 @@ _config.routing = {
     }
   },
   sign_in_path: '/',
+  login: '/login',
   forgot_path: '/login/reset-password',
   change_password_path: '/login/change-password',
   expired_path: '/login/change-password-expired'
