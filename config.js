@@ -28,7 +28,6 @@ _config.routing = {
       incorrect: 'incorrect'
     }
   },
-  sign_in_path: '/',
   login: '/login',
   forgot_path: '/login/reset-password',
   change_password_path: '/login/change-password',
