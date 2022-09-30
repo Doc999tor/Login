@@ -1,0 +1,29 @@
+.notify-wrapper {
+  position: absolute;
+  width: 90%;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 3px 20px 0 rgba(41, 41, 204, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+  .notify-text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-left: 12px;
+  }
+  .error {
+    color: var(--active-color);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .notify-wrapper {
+    .notify-text {
+      font-size: 1rem;
+    }
+  }
+}

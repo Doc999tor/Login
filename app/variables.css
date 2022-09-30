@@ -6,7 +6,9 @@
   --white-color: #fff;
   --active-color: #ff358c; /* (#barbie_pink); */
   --dark-color: #4f2da7; /* (#blue_with_a_hint_of_purple); */
-  --font-family: -apple-system, "San Francisco", "Lucida Grande", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --dark_alt-color: #071828; /* (#shade_of_blue); */
+  --dark_alt_low_opacity-color: #07182882; /* (#shade_of_blue_low_opacity); */
+  --font-family: -apple-system, "San Francisco", "Lucida Grande", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   /* need to add */
   --shadow-color: rgba(0, 0, 0, 0.25);
   --err-color: #f14336;

@@ -1,3 +1,5 @@
+import { contentType } from '../utils/constants'
+
 function serialize (obj) {
   var str = []
   for (var p in obj) {
@@ -34,12 +36,12 @@ export async function get(url, params, argOptions = {}) {
     return await _promise(apiUrl, options)
 }
 
-export async function post(url, params, argOptions = {}) {
-    var apiUrl = url
-    myHeaders.set('Content-Type', 'application/x-www-form-urlencoded')
+export async function post(url, params, argOptions = {}, content_type = contentType.json) {
+    var apiUrl = _config.urls.base + url
+    myHeaders.set('Content-Type', content_type)
 
     baseOptions.method = 'POST'
-    baseOptions.body = serialize(params)
+    baseOptions.body = JSON.stringify(params)
     baseOptions.headers = myHeaders
 
     var options = {
@@ -97,8 +99,11 @@ var _promise = (apiUrl, options) => {
             var options = options;
             var reqConfig = new Request(apiUrl, options);
             fetch(reqConfig).then(response => {
-                if(reqConfig.method === "HEAD" && response.status === 200){
+                if(reqConfig.method === "HEAD" && response.status === 200 || reqConfig.method === 'POST' && response.status === 201){
                     resolve(response)
+                  }
+                if(reqConfig.method === 'POST' && response.status === 404){
+                    reject(response)
                   }
                 if (reqConfig.method === "GET" && response.status === 200 || reqConfig.method === "POST" && response.status === 200 || (reqConfig.method === "PUT" || reqConfig.method === "PATCH" || reqConfig.method === "DELETE") && response.status === 204) {
                     resolve(response.json())

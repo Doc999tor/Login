@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="ic_paper_plane" width="300" height="300" viewBox="0 0 300 300">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:url(#linear-gradient)}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#9058ff"/>
+            <stop offset="1" stop-color="#4f2da7"/>
+        </linearGradient>
+    </defs>
+    <path id="border" d="M0 0h300v300H0z" class="cls-1"/>
+    <g id="ic_plane" transform="rotate(45 47.779 192.902)">
+        <path id="Path_12930" d="M9.685 2.182l-7.5 7.5A7.4 7.4 0 0 0 12.657 20.15l7.5-7.5A7.4 7.4 0 0 0 9.685 2.182z" class="cls-2" data-name="Path 12930" transform="translate(37.811 157.878)"/>
+        <path id="Path_12931" d="M7.439 22.307a7.352 7.352 0 0 0 5.226-2.157l7.5-7.5A7.4 7.4 0 0 0 9.7 2.182l-7.5 7.5a7.413 7.413 0 0 0 5.239 12.625z" class="cls-2" data-name="Path 12931" transform="translate(.183 120.277)"/>
+        <path id="Path_12932" d="M24.716 2.207L2.208 24.7a7.4 7.4 0 0 0 10.474 10.474l22.509-22.5A7.4 7.4 0 0 0 24.716 2.207z" class="cls-2" data-name="Path 12932" transform="translate(.219 142.803)"/>
+        <path id="Path_12933" d="M179.968 9.229A7.413 7.413 0 0 0 174 .49c-2.962-.529 8.33-4.08-169.029 60.166A7.372 7.372 0 0 0 .5 69.935a162.742 162.742 0 0 0 28.15 50.917 8.475 8.475 0 0 0 12.018 1.19l73.722-61.77c3.838-3.216 9.009 1.953 5.792 5.789l-61.775 73.656a8.45 8.45 0 0 0 1.132 11.964 159.237 159.237 0 0 0 50.974 28.219 7.377 7.377 0 0 0 9.285-4.473C184.163-2.091 179.812 10.008 179.968 9.229z" class="cls-2" data-name="Path 12933" transform="translate(.007)"/>
+    </g>
+</svg>

@@ -1,4 +1,4 @@
-.log_in {
+.expired {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,11 +43,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .log-in-logo-name {
+    .expired-logo-name {
       padding-top: 0.75rem;
     }
   }
-  .log-in-wrap, .sending_wrap {
+  .expired-wrap, .status_block-wrap {
     position: relative;
     top: -5.7rem;
     padding: 1rem 1.5rem 2.5rem;
@@ -57,17 +57,17 @@
     border-radius: 1rem;
     box-shadow: 0 3px 20px 0 rgba(41, 41, 204, 0.2);
   }
-  .sending_wrap {
+  .status_block-wrap {
     padding: 0;
     width: 80%;
   }
-  .log-in-wrap {
+  .expired-wrap {
     min-height: 20.25rem;
     h1 {
       margin: 0;
       font-size: 2rem;
     }
-    .log-in-question {
+    .expired-question {
       margin: 0;
       font-size: 0.75rem;
       text-decoration: none;
@@ -218,6 +218,31 @@
   @keyframes eyeShow {
     0% {
       opacity: 0;
+    }
+  }
+  .contact_us_link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.375rem;
+    color: var(--main_color);
+    opacity: 0;
+    animation: show 0.4s forwards;
+    .link_text {
+      padding-bottom: 0.75rem;
+      font-size: 0.875rem;
+    }
+    .help {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.875rem;
+      height: 2.875rem;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px 0 rgba(41, 41, 204, 0.2);
+      background-color: var(--white-color);
     }
   }
   @keyframes show {

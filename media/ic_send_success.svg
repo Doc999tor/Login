@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 280 280">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:#27d792}.cls-1{opacity:.1}.cls-2{opacity:.2}.cls-3{fill:url(#linear-gradient)}.cls-4{fill:#fff;stroke:#fff;stroke-width:6px}
+        </style>
+        <linearGradient id="linear-gradient" x1=".136" x2=".823" y1=".157" y2=".883" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#3fefa2"/>
+            <stop offset="1" stop-color="#0c9b94"/>
+        </linearGradient>
+    </defs>
+    <g id="ic_send_success" transform="translate(-100 -180)">
+        <circle id="ellipse_3" cx="140" cy="140" r="140" class="cls-1" transform="translate(100 180)"/>
+        <circle id="ellipse_2" cx="114" cy="114" r="114" class="cls-2" transform="translate(126 206)"/>
+        <circle id="ellipse_1" cx="88" cy="88" r="88" class="cls-3" transform="translate(152 232)"/>
+        <g id="ic_check_mark" transform="translate(201 292)">
+            <path id="ic_check_mark-2" d="M7.4 27.108a4.352 4.352 0 0 0-6.128 0 4.29 4.29 0 0 0 0 6.092l21.664 21.538a4.352 4.352 0 0 0 6.128 0L76.731 7.354a4.29 4.29 0 0 0 0-6.092 4.352 4.352 0 0 0-6.128 0L26 45.6z" class="cls-4" data-name="ic_check_mark"/>
+        </g>
+    </g>
+</svg>
